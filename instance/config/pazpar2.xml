@@ -46,10 +46,13 @@
 
         <!-- Prefix for the name of the class which extends Pazpar2/Targets. Targets
              may be in this config file, in a database or from a remote API (search25) -->
-        <config name="targetclass" pass="true">Config</config>
+        <!-- <config name="targetclass" pass="true">Config</config> -->
+        <config name="targetclass" pass="true">Api</config>
+        <config name="apiurl">http://xerxes.inform25.ac.uk:5225</config>
         <!-- Prefix for the name of the class which extends Pazpar2/Subjects. Subjects
              may be in this config file, in a database or from a remote API (search25) -->
-        <config name="subjectclass" pass="true">Config</config>
+        <!-- <config name="subjectclass" pass="true">Config</config> -->
+        <config name="subjectclass" pass="true">Api</config>
 
         <!-- Target details for(use with pazpar2 conf files in data/pazpar2) -->
         <!-- Used by ConfigTargets -->

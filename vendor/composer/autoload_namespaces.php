@@ -6,7 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Zend' => $vendorDir . '/zendframework/zendframework/library/',
+    'Zend' => $baseDir . '/vendor/zendframework/zendframework/library/',
     'Xerxes' => $baseDir . '/module/Application/src',
     'Application' => $baseDir . '/module/Application/src',
 );

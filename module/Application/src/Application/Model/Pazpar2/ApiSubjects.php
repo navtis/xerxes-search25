@@ -2,7 +2,8 @@
 
 namespace Application\Model\Pazpar2;
 
-use Zend\Debug;
+use Zend\Debug,
+    Xerxes\Utility\Factory;
 /**
  * An implementation of the abstract Subjects class,
  * selected in configuration
@@ -16,7 +17,7 @@ use Zend\Debug;
  * @package Xerxes
  */
 
-class ConfigSubjects extends Subjects
+class ApiSubjects extends Subjects
 {
     // hashes of arrays
     protected $subjects_to_targets = array();
@@ -25,7 +26,9 @@ class ConfigSubjects extends Subjects
     protected $subjects = array();
     // array of names
     protected $subject_names = array();
+    protected $client;
     protected $config;
+    protected $url;
 
     /**
      * Constructor
@@ -34,10 +37,23 @@ class ConfigSubjects extends Subjects
         
     public function __construct()
     {
-        // full set of Subjects from configuration file 
+        // full set of Subjects from API 
         $this->config = Config::getInstance();
-        $config = $this->config->getConfig("targets");
-
+        $this->url = $this->config->getConfig( "apiurl" );
+        $command = '/subjects.json?active=true';
+        $this->client = Factory::getHttpClient();
+        $this->client->setUri( $this->url.$command );
+        $api_subjects = $this->client->send()->getBody();
+        $api_subjects = json_decode( $api_subjects, true );
+        $api_subjects = array_pop( $api_subjects );
+        $subjArray = array();
+        foreach( $api_subjects as $sub )
+        {
+            $subject = new Subject();
+            $subject->load(array('name' => $sub['subject'], 'id' => $sub['subject_id'], 'url' => $sub['ukat_url'])); 
+            $subjArray[] = $subject;
+        }
+        /*
         if ( $config != null )
         { 
             $subj_assoc = array();
@@ -73,6 +89,15 @@ class ConfigSubjects extends Subjects
                 $subject->load(array('name' => $sn, 'id' => $subj_assoc[$sn])); // useful when has more attributes!
                 $this->subjects[] = $subject;
             }
+        }
+         */
+        usort( $subjArray, array($this, 'alphasort') );
+
+        for( $i=0; $i < count($subjArray); $i++)
+        {
+            $subj = $subjArray[$i];
+            $subj->setPosition($i);
+            $this->subjects[] = $subj; 
         }
     }
 
@@ -112,9 +137,9 @@ class ConfigSubjects extends Subjects
                     $arrSubjects[] = $subject;
                 }
             }
-        }               
-        
+        } 
         return $arrSubjects;
+        
     }
 
     /**
@@ -126,16 +151,22 @@ class ConfigSubjects extends Subjects
      */
     public function getSubjectsByTarget($pz2_key)
     {
+
         $arrSubjects = array ( );
-        $ss = $this->targets_to_subjects[$pz2_key];
-        foreach( $this->subjects as $subject )
+
+        $command = "/institutions/$pz2_key/subjects.json";
+        $this->client->setUri( $this->url.$command );
+        $api_subjects = $this->client->send()->getBody();
+        $api_subjects = json_decode( $api_subjects, true );
+        $api_subjects = array_pop( $api_subjects );
+        foreach( $api_subjects as $sub )
         {
-            if ( in_array( $subject->name, $ss ) )
-            {
-                $arrSubjects[] = $subject;
-            }
+            $subject = new Subject();
+            $subject->load(array('name' => $sub['subject'], 'id' => $sub['subject_id'], 'url' => $sub['ukat_url'])); 
+            $subjArray[] = $subject;
         }
-        return $arrSubjects;
+        usort( $subjArray, array($this, 'alphasort') );
+        return $subjArray;
     }
 
     /**
@@ -145,17 +176,26 @@ class ConfigSubjects extends Subjects
      */
     public function getTargetsBySubject($subject_ids)
     {
-        $ss = array();
+        // force single sid into an array
         if (! is_array($subject_ids) )
         {
             $sn = array();
             $sn[] = $subject_ids;
             $subject_ids = $sn;
         }
-        foreach( $subject_ids as $sn )
+        $keys = array();
+        foreach( $subject_ids as $sid )
         {
-            $ss = array_merge($ss, $this->subjects_to_targets[$sn]);
+            $command = "/subjects/$sid/institutions.json?active=true";
+            $this->client->setUri( $this->url.$command );
+            $api_targets = $this->client->send()->getBody();
+            $api_targets = json_decode( $api_targets, true );
+            $api_targets = array_pop( $api_targets );
+            foreach( $api_targets as $tgt )
+            {
+                $keys[$tgt['m25_code']] = 1;
+            }
         }
-        return new Targets($ss);
+        return new Targets( array_keys($keys) );
     }
 }

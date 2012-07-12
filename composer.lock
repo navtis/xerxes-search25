@@ -1,0 +1,32 @@
+{
+    "hash": "8cab97fa72affd8a8c8ad98ae5e1d21b",
+    "packages": [
+        {
+            "package": "pear-pear/File_MARC",
+            "version": "0.7.1"
+        },
+        {
+            "package": "pear-pear/Structures_LinkedList",
+            "version": "0.2.2"
+        },
+        {
+            "package": "zendframework/zendframework",
+            "version": "dev-master",
+            "alias-pretty-version": "2.0.x-dev",
+            "alias-version": "2.0.9999999.9999999-dev"
+        },
+        {
+            "package": "zendframework/zendframework",
+            "version": "dev-master",
+            "source-reference": "c1273a4ea7ab16ecb0be1f53c211c80a27ffee9a"
+        }
+    ],
+    "packages-dev": null,
+    "aliases": [
+
+    ],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "zendframework/zendframework": 20
+    }
+}
