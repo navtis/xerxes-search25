@@ -53,44 +53,7 @@ class ApiSubjects extends Subjects
             $subject->load(array('name' => $sub['subject'], 'id' => $sub['subject_id'], 'url' => $sub['ukat_url'])); 
             $subjArray[] = $subject;
         }
-        /*
-        if ( $config != null )
-        { 
-            $subj_assoc = array();
-            $key = 'pz2_key';
-            foreach ( $config->target as $target_data )
-            { 
-                $t = (string)$target_data->attributes()->$key;
-                if (! array_key_exists( $t, $this->targets_to_subjects ) )
-                {
-                    $this->targets_to_subjects[$t] = array();
-                }
-                // now pick up all the subjects for this target
-                $subjects = $target_data->children();
-                $id = 'id';
-                foreach($subjects as $s)
-                {
-                    $subj = (string)$s;
-                    $subj_id = (string)$s->attributes()->$id;
-                    $subj_assoc[$subj] = $subj_id;
-                    if (! array_key_exists( $subj_id, $this->subjects_to_targets ) )
-                    {
-                        $this->subjects_to_targets[$subj_id] = array();
-                    }
-                    $this->targets_to_subjects[$t][] = $subj_id;
-                    $this->subjects_to_targets[$subj_id][] = $t;
-                }
-            }
-            $this->subjectnames = array_keys( $subj_assoc );
-            sort( $this->subjectnames );
-            foreach( $this->subjectnames as $sn)
-            {
-                $subject = new Subject();
-                $subject->load(array('name' => $sn, 'id' => $subj_assoc[$sn])); // useful when has more attributes!
-                $this->subjects[] = $subject;
-            }
-        }
-         */
+        
         usort( $subjArray, array($this, 'alphasort') );
 
         for( $i=0; $i < count($subjArray); $i++)
@@ -140,6 +103,33 @@ class ApiSubjects extends Subjects
         } 
         return $arrSubjects;
         
+    }
+
+    /** 
+     * Fetch all subjects for a library
+     *
+     * @param string $pz2_key   Identifier for a pazpar2 z39.50 target
+     * @param string $library_id Identifier for a library within that institution
+     * @returns array of Subjects
+     */
+    public function getSubjectsByLibrary($pz2_key, $library_id)
+    {
+
+        $arrSubjects = array ( );
+
+        $command = "/institutions/$pz2_key/libraries/$library_id/subjects.json";
+        $this->client->setUri( $this->url.$command );
+        $api_subjects = $this->client->send()->getBody();
+        $api_subjects = json_decode( $api_subjects, true );
+        $api_subjects = array_pop( $api_subjects );
+        foreach( $api_subjects as $sub )
+        {
+            $subject = new Subject();
+            $subject->load(array('name' => $sub['subject'], 'id' => $sub['subject_id'], 'url' => $sub['ukat_url'])); 
+            $subjArray[] = $subject;
+        }
+        usort( $subjArray, array($this, 'alphasort') );
+        return $subjArray;
     }
 
     /**

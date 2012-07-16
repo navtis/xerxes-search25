@@ -53,6 +53,7 @@
              may be in this config file, in a database or from a remote API (search25) -->
         <!-- <config name="subjectclass" pass="true">Config</config> -->
         <config name="subjectclass" pass="true">Api</config>
+        <config name="libraryclass" pass="true">Api</config>
 
         <!-- Target details for(use with pazpar2 conf files in data/pazpar2) -->
         <!-- Used by ConfigTargets -->
