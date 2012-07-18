@@ -52,7 +52,7 @@
         </div>
         <div id="list-column" style="float:left">
 		<xsl:call-template name="loop_columns">
-			<xsl:with-param name="num_columns">3</xsl:with-param>
+			<xsl:with-param name="num_columns">2</xsl:with-param>
 		</xsl:call-template>
        </div>
     </form>

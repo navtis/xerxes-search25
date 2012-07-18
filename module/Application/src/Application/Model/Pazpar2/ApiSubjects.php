@@ -50,7 +50,7 @@ class ApiSubjects extends Subjects
         foreach( $api_subjects as $sub )
         {
             $subject = new Subject();
-            $subject->load(array('name' => $sub['subject'], 'id' => $sub['subject_id'], 'url' => $sub['ukat_url'])); 
+            $subject->load(array('name' => $sub['subject'], 'id' => $sub['subject_id'], 'position' => $sub['subject_id'], 'url' => $sub['ukat_url'])); 
             $subjArray[] = $subject;
         }
         
@@ -125,7 +125,7 @@ class ApiSubjects extends Subjects
         foreach( $api_subjects as $sub )
         {
             $subject = new Subject();
-            $subject->load(array('name' => $sub['subject'], 'id' => $sub['subject_id'], 'url' => $sub['ukat_url'])); 
+            $subject->load(array('name' => $sub['subject'], 'id' => $sub['subject_id'], 'position' => $sub['subject_id'], 'url' => $sub['ukat_url'])); 
             $subjArray[] = $subject;
         }
         usort( $subjArray, array($this, 'alphasort') );
@@ -152,7 +152,7 @@ class ApiSubjects extends Subjects
         foreach( $api_subjects as $sub )
         {
             $subject = new Subject();
-            $subject->load(array('name' => $sub['subject'], 'id' => $sub['subject_id'], 'url' => $sub['ukat_url'])); 
+            $subject->load(array('name' => $sub['subject'], 'id' => $sub['subject_id'], 'position' => $sub['subject'], 'url' => $sub['ukat_url'])); 
             $subjArray[] = $subject;
         }
         usort( $subjArray, array($this, 'alphasort') );

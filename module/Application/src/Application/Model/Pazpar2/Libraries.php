@@ -31,7 +31,7 @@ class Libraries
     {
 	// the 'real' class is given by the configuration file
 	$config = Config::getInstance();
-        $class = $config->getConfig("libraryclass") . 'Libraries';
+        $class = $config->getConfig("datasource") . 'Libraries';
         $class = 'Application\Model\Pazpar2\\' .  $class;
 	$this->manager = new $class($pz2_key);
 

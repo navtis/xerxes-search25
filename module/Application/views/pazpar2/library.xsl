@@ -45,21 +45,26 @@
 	<h1><a href="{//target/library_url}" name="{//target/short_name} Library Website" target="_blank"><xsl:value-of select="//target/display_name"/></a></h1>	
 	<xsl:variable name="no-of-libraries" select="count(//libraries/library)"/>
 	<xsl:choose>
-		<xsl:when test="$no-of-libraries = 1">
-			<p>This institution has one library.</p>
-		</xsl:when>
+		<xsl:when test="//libraries/library/type = 'virtual'"/>
 		<xsl:otherwise>
-			<p>This institution has <xsl:value-of select="$no-of-libraries"/> member libraries.</p>
+			<xsl:choose>
+				<xsl:when test="$no-of-libraries = 1">
+					<p>This institution has one library.</p>
+				</xsl:when>
+				<xsl:otherwise>
+					<p>This institution has <xsl:value-of select="$no-of-libraries"/> member libraries.</p>
+				</xsl:otherwise>
+			</xsl:choose>
+			<div id="map-info">
+				<xsl:for-each select="//libraries/library">
+					<span class="library-data" name="{full_name}" x="{latitude}" y="{longitude}"/>
+				</xsl:for-each>
+			</div>
+			<div id="map" style="height: 250px; width: 400px;">
+			</div>
+			<span id="map-attribution">Map data © <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors</span>
 		</xsl:otherwise>
 	</xsl:choose>
-		<div id="map-info">
-			<xsl:for-each select="//libraries/library">
-				<span class="library-data" name="{full_name}" x="{latitude}" y="{longitude}"/>
-			</xsl:for-each>
-		</div>
-		<div id="map" style="height: 250px; width: 400px;">
-		</div>
-		<span id="map-attribution">Map data © <a href="http://openstreetmap.org" target="_blank">OpenStreetMap</a> contributors</span>
 		<xsl:for-each select="//libraries/library">
 			<xsl:choose>
 				<xsl:when test="$no-of-libraries > 1">
@@ -69,19 +74,27 @@
 					<br /><br />
 				</xsl:otherwise>
 			</xsl:choose>
-		<span class="heading">Address:</span><br />
-		<xsl:call-template name="tokenize">
-			<xsl:with-param name="text"><xsl:value-of select="address"/></xsl:with-param>
-		</xsl:call-template>
-		<xsl:value-of select="postcode"/><br /><br />
-		
-		<xsl:if test="phone != ''">
-			<span class="heading">Phone: </span><xsl:value-of select="phone"/><br />
+		<xsl:if test="description">
+			<p><xsl:value-of select="description"/></p>
 		</xsl:if>
-		<xsl:if test="email != ''">
-			<span class="heading">Email: </span><xsl:value-of select="email"/><br />
-		</xsl:if>
-		<br />
+		<xsl:choose>
+			<xsl:when test="type = 'virtual'"/>
+			<xsl:otherwise>
+			<span class="heading">Address:</span><br />
+			<xsl:call-template name="tokenize">
+				<xsl:with-param name="text"><xsl:value-of select="address"/></xsl:with-param>
+			</xsl:call-template>
+			<xsl:value-of select="postcode"/><br /><br />
+	
+			<xsl:if test="phone != ''">
+				<span class="heading">Phone: </span><xsl:value-of select="phone"/><br />
+			</xsl:if>
+			<xsl:if test="email != ''">
+				<span class="heading">Email: </span><xsl:value-of select="email"/><br />
+			</xsl:if>
+			<br />
+			</xsl:otherwise>
+		</xsl:choose>
 		<xsl:if test="(visitor_information != '') or (opac_url != '')">
 			<span class="heading">Links</span><br/>
 			<xsl:if test="visitor_information_url != ''">

@@ -18,7 +18,7 @@ use Zend\Debug,
  * @package Xerxes
  */
 
-class ApiLibraries extends Libraries
+class ConfigLibraries extends Libraries
 {
     protected $libraries = array();
     protected $client;
@@ -36,26 +36,32 @@ class ApiLibraries extends Libraries
         
     public function __construct($pz2_key)
     {
-        // full set of Libraries for this institution from Search25 API
+        // full set of Libraries for this institution from configuration file
         $this->config = Config::getInstance();
-        $url = $this->config->getConfig("apiurl");
-        $command = "/institutions/$pz2_key/libraries.json?active=true";
-        $this->client = Factory::getHttpClient();
-        $this->client->setUri($url.$command);
-        $api_libraries = $this->client->send()->getBody();
-        $api_libraries = json_decode($api_libraries, true);
-        $api_libraries = array_pop($api_libraries);
-        $arr = array();
-        foreach($api_libraries as $api_library)
+        $xml = $this->config->getXml();
+
+        $query = "//config[@name='targets']/target[@pz2_key='$pz2_key']/library";
+        $libraries = $xml->xpath($query);
+
+        $lib_arr = array();
+
+        foreach($libraries as $config_library)
         {
+            $arr = array();
+            $description = (string)$config_library;
+            $arr['description'] = $description;
+            foreach($config_library->attributes() as $k => $v)
+            {
+                $arr[$k] = (string)$v;
+            }
             $library = new Library();
-            $api_library['pz2_key'] = $pz2_key;
-            $library->load($api_library);
-            $arr[] = $library;
+            $arr['pz2_key'] = $pz2_key;
+            $library->load($arr);
+            $lib_arr[] = $library;
         }
 
-        usort( $arr, array($this, 'alphasort') );
-        $this->libraries = $arr;
+        usort( $lib_arr, array($this, 'alphasort') );
+        $this->libraries = $lib_arr;
     }
 
 

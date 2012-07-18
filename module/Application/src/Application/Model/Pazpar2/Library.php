@@ -22,8 +22,10 @@ use
 class Library extends DataValue  
 {
     public $pz2_key;
-    public $library_id; 
+    public $library_id;
+    public $type;
     public $name;
+    public $description;
     public $home_url;
 
     public $address = array(); // address + postcode
@@ -44,21 +46,29 @@ class Library extends DataValue
 	public function load( $arr )
 	{
             $this->vars = $arr; // keep for use later
-	    $this->target_id = $arr['pz2_key'];
+            $this->target_id = $arr['pz2_key'];
+
+            foreach($arr as $k => $v)
+
             $this->pz2_key = $arr['pz2_key'];
             $this->library_id = $arr['library_id'];
             $this->name = $arr['full_name'];
-            $this->address['address'] = $arr['address'];
-            $this->address['postcode'] = $arr['postcode'];
-            $this->contact['phone'] = $arr['phone'];
-            $this->contact['email'] = $arr['email'];
-            $this->web['opac_url'] = $arr['opac_url'];
-            $this->web['information_url'] = $arr['visitor_information_url'];
-            $this->location['district'] = $arr['district'];
-            $this->location['longitude'] = $arr['longitude'];
-            $this->location['latitude'] = $arr['latitude'];
-            $this->location['northing'] = $arr['northing'];
-            $this->location['easting'] = $arr['easting'];
+            $this->description = isset($arr['description'])?$arr['description']:'';
+            $this->type = isset($arr['type'])?$arr['type']:'';
+            $this->web['opac_url'] = isset($arr['opac_url'])?$arr['opac_url']:'';
+            $this->web['information_url'] = isset($arr['visitor_information_url'])?$arr['visitor_information_url']:'';
+            if ($this->type != 'virtual')
+            {
+                $this->address['address'] = isset($arr['address'])?$arr['address']:'';
+                $this->address['postcode'] = isset($arr['postcode'])?$arr['address']:'';
+                $this->contact['phone'] = isset($arr['phone'])?$arr['phone']:'';
+                $this->contact['email'] = isset($arr['email'])?$arr['email']:'';
+                $this->location['district'] = isset($arr['district'])?$arr['district']:'';
+                $this->location['longitude'] = isset($arr['longitude'])?$arr['longitude']:'';
+                $this->location['latitude'] = isset($arr['latitude'])?$arr['latitude']:'';
+                $this->location['northing'] = isset($arr['northing'])?$arr['northing']:'';
+                $this->location['easting'] = isset($arr['easting'])?$arr['easting']:'';
+            }
             $subjects = new Subjects();
             $this->subjects = $subjects->getSubjectsByLibrary($this->pz2_key, $this->library_id);
 	    parent::load($arr);
