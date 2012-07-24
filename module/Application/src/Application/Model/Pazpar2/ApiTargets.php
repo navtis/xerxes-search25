@@ -68,6 +68,7 @@ class ApiTargets extends Targets
             $data['display_name'] = htmlentities( $api_institutions[$i]['full_name'] );
             $data['sort_name'] = htmlentities( $api_institutions[$i]['sort_name'] );
             $data['library_url'] = $api_institutions[$i]['library_url'];
+            $data['domain'] = $api_institutions[$i]['domain'];
             $target = new Target();
             $target->load($data);
             $tgtArray[] = $target;

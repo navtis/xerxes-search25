@@ -47,7 +47,7 @@
         <!-- Prefix for the name of the class which extends Pazpar2/Targets
              and related classes. Data may come from Config file, external
              API, or Database. Current working values are Config and Api -->
-        <config name="datasource" pass="true">Config</config> 
+        <config name="datasource" pass="true">Api</config> 
         <!-- Only required if Api is being used as datasource -->
         <config name="apiurl">http://xerxes.inform25.ac.uk:5225</config>
 
@@ -98,9 +98,9 @@
         <config name="groupby" xml="true" pass="true">
             <option id="name" public="By name" url="/pazpar2/nameoptions" />
             <option id="subject" public="By subject" url="/pazpar2/subjectoptions" />
+            <option id="access" public="By access right" url="/pazpar2/accessoptions" />
             <!-- options not yet available -->
             <!--
-            <option id="access" public="By access right" url="/pazpar2/accessoptions" />
             <option id="type" public="By type" url="/pazpar2/typeoptions" />
             <option id="distance" public="By distance" url="/pazpar2/distanceoptions" />
             -->

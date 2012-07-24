@@ -186,6 +186,18 @@ class ApiSubjects extends Subjects
                 $keys[$tgt['m25_code']] = 1;
             }
         }
-        return new Targets( array_keys($keys) );
+        // filter out institutions without working z-server
+        $targets = array();
+        $command = "/z3950.json?active=true";
+        $this->client->setUri( $this->url.$command );
+        $api_targets = $this->client->send()->getBody();
+        $api_targets = json_decode( $api_targets, true );
+        $api_targets = array_pop( $api_targets );
+        foreach( $api_targets as $tgt )
+        {
+            $targets[$tgt['m25_code']] = 1;
+        }
+        $filtered_keys = array_intersect($keys, $targets);
+        return new Targets( array_keys($filtered_keys) );
     }
 }
