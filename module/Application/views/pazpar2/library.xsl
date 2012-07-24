@@ -79,7 +79,9 @@
 		</xsl:choose>
 			  </xsl:when>
 			  <xsl:otherwise>
-				  <p>If you select your home institution using the <em>User options</em> above, you can see what access rights you have in this institution's libraries.</p>
+				  <xsl:if test="//config/groupby/option[@id='access']">
+					  <p>If you select your home institution using the <em>User options</em> above, you can see what access rights you have in this institution's libraries.</p>
+				</xsl:if>
 			</xsl:otherwise>
 		</xsl:choose>
 		<br />
