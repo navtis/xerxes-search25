@@ -175,6 +175,14 @@ h2 {
     float: left;
 }
 
+.holdings-table {
+	margin-bottom: 1em;
+}
+
+button#holdings-toggle{
+	margin: 1em 0 1em 4em;
+}
+
 /* for additional target status column on right of results page */
 
 .status {

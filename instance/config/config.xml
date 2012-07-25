@@ -16,7 +16,7 @@
 		
 		<!-- what is your application called? Will be used in parts of the system. -->
 			 
-		<config name="application_name" pass="true">Xerxes Demo</config>
+		<config name="application_name" pass="true">Search25</config>
 			
 		<!-- include here the range of local ip addresses that should not be challenged for a login.
 		 	enter as either 144.37.*.*, with * as wildcard, or as 144.37.0.0-144.37.255.255,
