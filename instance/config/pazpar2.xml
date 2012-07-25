@@ -47,7 +47,7 @@
         <!-- Prefix for the name of the class which extends Pazpar2/Targets
              and related classes. Data may come from Config file, external
              API, or Database. Current working values are Config and Api -->
-        <config name="datasource" pass="true">Api</config> 
+        <config name="datasource" pass="true">Config</config> 
         <!-- Only required if Api is being used as datasource -->
         <config name="apiurl">http://xerxes.inform25.ac.uk:5225</config>
 
