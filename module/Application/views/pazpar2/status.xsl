@@ -56,7 +56,7 @@
 
 		<h1><xsl:value-of select="$text_search_module" /></h1>
 	
-	<xsl:call-template name="searchbox" />
+		<!--	<xsl:call-template name="searchbox" /> -->
 
 	<xsl:call-template name="search-results" /> 
 

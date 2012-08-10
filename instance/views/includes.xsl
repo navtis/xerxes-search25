@@ -18,6 +18,18 @@
 <!-- Header -->
 
 <xsl:template name="header_div" >
+	<div id="hd-banner">
+
+		 <xsl:call-template name="searchbox" />
+
+		<a href="{$base_url}" id="hd-banner-link">
+			<img src="images/search25/search25_logo1918x676.png" alt="Search25 Logo" id="banner-logo"/>
+		</a>		
+	</div>
+</xsl:template>
+
+<!--
+<xsl:template name="header_div" >
 
 	<div id="hd-banner">
 		<a href="{$base_url}" id="hd-banner-link">
@@ -38,7 +50,7 @@
 	</div>
 
 </xsl:template>
-
+-->
 
 
 <!-- Footer -->

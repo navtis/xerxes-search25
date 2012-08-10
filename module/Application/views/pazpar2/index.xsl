@@ -49,9 +49,7 @@
 	
 	<xsl:template name="main">
 
-		<h1>Search25</h1>
-	
-	<xsl:call-template name="searchbox" />
+		<!-- <xsl:call-template name="searchbox" /> -->
 	
 	<xsl:if test="//Error">
 		<xsl:call-template name="error-message">

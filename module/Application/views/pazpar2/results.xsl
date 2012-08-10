@@ -56,7 +56,7 @@
     <div class="yui-ge"> 
         <div class="yui-u first"> 
             <h1><xsl:value-of select="$text_search_module" /></h1> 
-            <xsl:call-template name="searchbox" /> 
+	    <!--    <xsl:call-template name="searchbox" />  -->
         </div> 
 	<!--        <div class="yui-u"> 
             <div class="sidebar"> 

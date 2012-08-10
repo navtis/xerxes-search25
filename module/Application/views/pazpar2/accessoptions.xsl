@@ -26,7 +26,7 @@
 
 	<h1><xsl:value-of select="$text_options_module"/></h1>
 	
-    <xsl:call-template name="searchbox" />
+	<!--    <xsl:call-template name="searchbox" /> -->
 
     <xsl:call-template name="user-options" >
         <xsl:with-param name="template" select="$template"/>
