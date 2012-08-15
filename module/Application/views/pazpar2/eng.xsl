@@ -46,6 +46,7 @@ xmlns:php="http://php.net/xsl" exclude-result-prefixes="php">
     <xsl:variable name="text_options_module">User options</xsl:variable>
     <xsl:variable name="text_uls_search_module">Find Print Journals</xsl:variable>
     <xsl:variable name="text_search_module">Find Books and Journals</xsl:variable>
+    <xsl:variable name="text_search_hits_no_match">Sorry, your search did not match any records. You might try either changing your search term or enlarging the number of libraries searched</xsl:variable>
     <!-- override treatment of language in labels/eng.xsl for results page -->
     <xsl:template name="text_results_language">
         <xsl:if test="language and language != 'English'">

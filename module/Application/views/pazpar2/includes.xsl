@@ -50,6 +50,7 @@
         <span id="pz2session" data-value="{//request/session/pz2session}" />
     </xsl:template>
 
+
     <xsl:template name="type-dependent-heading">
 	<xsl:param name="type"/>
 	<xsl:choose>
