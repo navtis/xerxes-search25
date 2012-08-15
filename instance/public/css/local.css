@@ -87,6 +87,9 @@
 
 /* Options pages */
 
+.title {
+	font-weight: bold;
+}
 .set-option{
 	margin-top: 1em;
 }
