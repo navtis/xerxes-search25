@@ -8,6 +8,7 @@
 
 /* @import url("/javascript/jquery/css/jquery-ui-1.8.16.custom.css") */
 
+@import url("books.css"); 
 
 #hd-banner {
        background-color: #336699;
