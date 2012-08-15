@@ -185,7 +185,7 @@
                 <div>
                     <span style="float:left;">Faster search </span> <div id="slider" style="float:left; width: 10em; margin: 5px 10px 5px 12px;"></div> <span style="float:left;"> More results</span>
                 </div>
-                <input type="submit" name="records" value="Submit" style="margin-left: 1em; float:left;"/>
+                <input type="submit" name="records" value="Submit" style="margin-left: 1em; float: left"/>
                 <div style="clear:both"/>
             </form>
 
