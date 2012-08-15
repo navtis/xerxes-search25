@@ -82,6 +82,7 @@ class Targets
         }
         else
         {
+            // should never happen
             return $this->manager->getIndividualTargets($keys);
         }
     }

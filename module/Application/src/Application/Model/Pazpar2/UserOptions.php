@@ -139,7 +139,7 @@ class UserOptions
                 $affiliation = $this->getSessionData( 'affiliation' );
                 $ts = $ts->getTargetsByEntitlement( $type, $entitlement_ids, $affiliation );
                 $targets = array_keys($ts);
-                //var_dump($targets); echo('<br />');
+                var_dump($targets); echo('<br />');
                 break;
         }
         $this->setSessionData('targets', $targets);

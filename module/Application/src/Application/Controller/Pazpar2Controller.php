@@ -57,12 +57,13 @@ class Pazpar2Controller extends SearchController
 
         if ( ($target = $this->request->getParam('target') ) != null )
         {
-            $t = new Targets();
+            $uo = new UserOptions($this->request);
+            $type = $uo->getSessionData('source_type');
+            $t = new Targets($type);
             $institution = $t->getIndividualTargets($target);
             $this->data['institution'] = $institution;
             $libs = new Libraries( $target );
             $this->data['libraries'] = $libs;
-            $uo = new UserOptions($this->request);
             $this->data['useroptions'] = $uo;
             if ( $uo->existsInSessionData( 'affiliation' ) )
             {
@@ -237,7 +238,7 @@ class Pazpar2Controller extends SearchController
         public function resultsAction()
         {
             //var_dump($this->request); exit;
-            $uo = new UserOptions($this->request);
+            $uo = new UserOptions($this->request); 
             $sid = $uo->getSessionData('pz2session');
             try
             {
