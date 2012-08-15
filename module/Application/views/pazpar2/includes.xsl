@@ -150,7 +150,7 @@
 			</li>
 		</xsl:if>
 		<li><img src="images/famfamfam/user.png"/>
-			<a href="/pazpar2/options">User options</a>
+			<a href="/pazpar2/options"><xsl:value-of select="$text_options_module"/></a>
 		</li>
 
 			<li id="my-saved-records" class="sidebar-folder">

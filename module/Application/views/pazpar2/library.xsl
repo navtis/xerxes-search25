@@ -86,7 +86,7 @@
 		            </xsl:choose>
                         </xsl:when>
                         <xsl:otherwise>
-                            <p>If you select your home institution using the <em>User options</em> above, you can see what access rights you have in this institution's libraries.</p>
+				<p>If you select your home institution using the <em><xsl:value-of select="user_options_module"/></em> above, you can see what access rights you have in this institution's libraries.</p>
 			</xsl:otherwise>
 		    </xsl:choose>
                 </div>
