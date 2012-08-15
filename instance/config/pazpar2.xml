@@ -95,6 +95,11 @@
             <affiliation id="lse.ac.uk" public="London School of Economics" role="lecturer,student"/>
         </config>
 
+        <config name="sourcetype" xml="true" pass="true">
+            <option id="library" public="M25 Member" default="true"/>
+            <option id="uls" public="Unified List of Serials"/>
+        </config>
+
         <config name="groupby" xml="true" pass="true">
             <option id="name" public="By name" url="/pazpar2/nameoptions" />
             <option id="subject" public="By subject" url="/pazpar2/subjectoptions" />

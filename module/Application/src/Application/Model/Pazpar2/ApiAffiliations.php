@@ -111,11 +111,12 @@ class ApiAffiliations extends Affiliations
     }
     /**
      * Lists institutions accessible given an entitlement
+     * @param string $type          Kind of target to filter on
      * @param array $affiliation    EduPerson style role+domain
      * @param string $entitlement   array of entitlement ids
      * @return array                pz2_keys => institution names
      */
-    public function getTargetsByEntitlement($entitlements, $affiliation)
+    public function getTargetsByEntitlement($type, $entitlements, $affiliation)
     {
         $institutions = array();
         foreach($entitlements as $entitlement)
@@ -135,7 +136,7 @@ class ApiAffiliations extends Affiliations
         }
         // filter out institutions without working z-server
         $targets = array();
-        $command = "/z3950.json?active=true&source_type=library";
+        $command = "/z3950.json?active=true&source_type=$type";
         $this->client->setUri( $this->apiurl.$command );
         $api_targets = $this->client->send()->getBody();
         $api_targets = json_decode( $api_targets, true );

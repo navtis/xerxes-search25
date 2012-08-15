@@ -34,7 +34,7 @@ class ApiTargets extends Targets
      * 
      */
         
-    public function __construct()
+    public function __construct($type, $targets)
     {
         // full set of Targets from Search25 API
         $this->config = Config::getInstance();
@@ -43,8 +43,10 @@ class ApiTargets extends Targets
         $this->client = Factory::getHttpClient();
         $this->client->setUri($url.$command);
         $api_institutions = $this->client->send()->getBody();
-        // FIXME need to be able to vary source_type
-        $command = '/z3950.json?active=true&source_type=library';
+        if ($type == null)
+            $command = "/z3950.json?active=true";
+        else
+            $command = "/z3950.json?active=true&source_type=$type";
         $this->client->setUri($url.$command);
         $api_targets = $this->client->send()->getBody();
         $api_institutions = json_decode($api_institutions, true);
@@ -79,7 +81,7 @@ class ApiTargets extends Targets
         for( $i=0; $i < count($tgtArray); $i++)
         {
             $tgt = $tgtArray[$i];
-            $tgt->position = $i;
+            $tgt->position = $i + 1;
             $this->targets[$tgt->pz2_key] = $tgt; 
         }
     }

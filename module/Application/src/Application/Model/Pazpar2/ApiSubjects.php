@@ -164,7 +164,7 @@ class ApiSubjects extends Subjects
      * @param string/array $subject_ids     Single subject_id or array of subject_ids
      * @returns Targets object  
      */
-    public function getTargetsBySubject($subject_ids)
+    public function getTargetsBySubject($type, $subject_ids)
     {
         // force single sid into an array
         if (! is_array($subject_ids) )
@@ -198,6 +198,6 @@ class ApiSubjects extends Subjects
             $targets[$tgt['m25_code']] = 1;
         }
         $filtered_keys = array_intersect($keys, $targets);
-        return new Targets( array_keys($filtered_keys) );
+        return new Targets( $type, array_keys($filtered_keys) );
     }
 }

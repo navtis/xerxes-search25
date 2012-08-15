@@ -54,8 +54,10 @@
 <xsl:template name="search_page"> 
     <!-- search box area --> 
     <div class="yui-ge"> 
-        <div class="yui-u first"> 
-            <h1><xsl:value-of select="$text_search_module" /></h1> 
+	    <div class="yui-u first">
+		    <xsl:call-template name="type-dependent-heading">
+			    <xsl:with-param name="type" select="//pazpar2options/user-options/source_type"/>
+		    </xsl:call-template>
 	    <!--    <xsl:call-template name="searchbox" />  -->
         </div> 
 	<!--        <div class="yui-u"> 
@@ -326,7 +328,6 @@
         </xsl:choose>
     </xsl:template>
 
-    <!-- and the new template GS -->
     <xsl:template name="status_sidebar">
         <h2>Libraries Searched</h2>
         <h3>Records fetched / found</h3>
@@ -381,8 +382,19 @@
             <xsl:choose> 
                 <xsl:when test="url">
                     <xsl:choose>
-                        <xsl:when test="$facet_type='server'">
-                            <xsl:variable name="loc" select="name"/>
+			    <xsl:when test="$facet_type='server'">
+
+				    <xsl:variable name="loc">
+					    <xsl:choose>
+						    <!-- FIXME search25-specific constant -->
+						    <xsl:when test="substring(name, string-length(name)-2)='uls'">
+							    <xsl:value-of select="substring(name, 0, string-length(name)-2)"/>
+							</xsl:when>
+							<xsl:otherwise>
+							    <xsl:value-of select="name"/> 
+							</xsl:otherwise>
+						</xsl:choose>
+				</xsl:variable>
 				    <a href="{url}"><xsl:value-of select="//targets/*[name()=$loc]"/>
                             </a>
                         </xsl:when>

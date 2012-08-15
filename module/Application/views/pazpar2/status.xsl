@@ -54,7 +54,9 @@
 
 	<xsl:template name="main">
 
-		<h1><xsl:value-of select="$text_search_module" /></h1>
+		    <xsl:call-template name="type-dependent-heading">
+			    <xsl:with-param name="type" select="//pazpar2options/user-options/source_type"/>
+		    </xsl:call-template>
 	
 		<!--	<xsl:call-template name="searchbox" /> -->
 

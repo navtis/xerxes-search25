@@ -50,6 +50,19 @@
         <span id="pz2session" data-value="{//request/session/pz2session}" />
     </xsl:template>
 
+    <xsl:template name="type-dependent-heading">
+	<xsl:param name="type"/>
+	<xsl:choose>
+		<!-- FIXME remove constant -->
+		    <xsl:when test="$type='uls'">
+            		<h1><xsl:value-of select="$text_uls_search_module" /></h1> 
+			</xsl:when>
+			<xsl:otherwise>
+				<h1><xsl:value-of select="$text_search_module" /></h1>
+		    </xsl:otherwise>
+		</xsl:choose>
+
+    </xsl:template>
 	<xsl:template name="options_sidebar">
 		<div id="account" class="box">
 			<h2><xsl:copy-of select="$text_header_options" /></h2>
