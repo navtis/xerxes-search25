@@ -36,12 +36,48 @@
      text-decoration: none;
 }
 
+#hd-banner ul li {
+	list-style: none;
+	display: inline;
+	margin-left: 1.5em;
+}
+
+#hd-banner ul li a {
+	color: white;
+}
+
+#hd-banner ul li a:link, a:visited, a:active {text-decoration: none}
+
+#hd-banner ul li a:hover {font-size: 105%}
+
 #banner-logo{
 	float:right;
 	width: 300px;
 	height: 100px;
 	margin-right: 10px;
 	padding-bottom: 10px;
+}
+
+/* static pages  */
+
+#faq dl {
+}
+
+#faq dt {
+	clear: both;
+	float: left;
+	font-weight: bold;
+	width: 14em;
+	text-align: right;
+	color: #444;
+	margin-bottom: .5em;
+	display: block;
+}
+#faq dd {
+	clear: left;
+	margin-left: 15em;
+	margin-bottom: .5em;
+	display: block;
 }
 
 

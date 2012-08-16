@@ -320,6 +320,17 @@ class Pazpar2Controller extends SearchController
             return $response;
         }
 
+
+    /* STATIC PAGES */
+
+        public function aboutAction(){}
+        public function faqAction(){}
+        public function contactAction(){}
+        public function librariesAction(){}
+
+
+    /* AJAX CALLS */
+
         /**
         * Terminate a search early when the user has lost patience
         */

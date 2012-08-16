@@ -19,6 +19,19 @@
 <xsl:import href="../includes.xsl" />
 <xsl:import href="eng.xsl" />
 
+<xsl:template name="header_div" >
+        <div id="hd-banner">
+	<ul>
+		<li><a href="/pazpar2/about">ABOUT</a></li>
+		<li><a href="/pazpar2/faq">FAQ</a></li>
+		<li><a href="/pazpar2/libraries">LIBRARIES</a></li>
+		<li><a href="/pazpar2/contact">CONTACT</a></li>
+	</ul>
+        <xsl:call-template name="searchbox" />
+        <a href="{$base_url}" id="hd-banner-link"><img src="images/search25/search25_logo1918x676.png" alt="Search25 Logo" id="banner-logo"/></a>
+	</div>
+ </xsl:template>
+
 
 <xsl:template name="error-message">
 	<xsl:param name="msg"/>

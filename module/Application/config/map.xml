@@ -63,6 +63,18 @@
             <action name="record">
                 <view>pazpar2/record.xsl</view>
             </action>
+            <action name="about">
+                <view>pazpar2/about.xsl</view>
+            </action>
+            <action name="faq">
+                <view>pazpar2/faq.xsl</view>
+            </action>
+            <action name="libraries">
+                <view>pazpar2/libraries.xsl</view>
+            </action>
+            <action name="contact">
+                <view>pazpar2/contact.xsl</view>
+            </action>
         </controller>
 
 </xerxes>
