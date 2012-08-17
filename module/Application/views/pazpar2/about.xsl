@@ -43,8 +43,15 @@
 
 	
 <xsl:template name="main">
-	<h1>About Search25</h1>
-		<p>Search25 is a project of the M25 Consortium, funded by JISC.</p>	
+	<h1>London and the South-East on your Bookshelf!</h1>
+
+	<p>Search25 is a regional resource discovery tool; providing one stop access to the library catalogues of over 50 world-renowned institutions and specialist collections within the <a href="http://www.m25lib.ac.uk">M25 Consortium of Academic Libraries</a> &mdash; helping you easily obtain resources from across London and the South-East. It is funded by <a href="http://www.jisc.ac.uk">JISC</a> under the Resource Discovery Programme. The M25 Consortium of Academic Libraries is a collaborative organisation of over 50 institutions that works to improve library and information services within the London region and more widely across the East and South-East.</p>
+
+	<p>Search25 makes it easier to search, locate and obtain resources at any library in the consortium, enabling users to benefit from the wealth of materials available to them. As a regional union catalogue, focused in and around the capital, Search25 provides students and academics with an exciting new research tool. It allows users to hop between a vast range of world-renowned large academic institutions and rare specialist collections densely packed in to South-East England, like no other service available.</p>
+
+	<p>Why not try library hopping today?</p>
+
+
 	</xsl:template>
 
 
