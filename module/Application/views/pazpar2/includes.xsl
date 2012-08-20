@@ -22,6 +22,7 @@
 <xsl:template name="header_div" >
         <div id="hd-banner">
 	<ul>
+		<li><a href="/pazpar2">HOME</a></li>
 		<li><a href="/pazpar2/about">ABOUT</a></li>
 		<li><a href="/pazpar2/faq">FAQ</a></li>
 		<li><a href="/pazpar2/libraries">LIBRARIES</a></li>

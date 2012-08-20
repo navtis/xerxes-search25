@@ -37,7 +37,7 @@
 
 <xsl:template match="/*">
 	<xsl:call-template name="surround">
-		<xsl:with-param name="sidebar">none</xsl:with-param>
+		<xsl:with-param name="sidebar">right</xsl:with-param>
 	</xsl:call-template>
 </xsl:template>
 
@@ -48,9 +48,16 @@
 </xsl:template>	
 	
 	<xsl:template name="main">
+	<xsl:if test="//Error">
+		<xsl:call-template name="error-message">
+			<xsl:with-param name="msg"><xsl:value-of select="//Error"/></xsl:with-param>
+		</xsl:call-template>
+	</xsl:if>
 
-		<!-- <xsl:call-template name="searchbox" /> -->
-	
+		<p class="intro">Search25 provides one-stop access to the library catalogues of over 50 world-renowned institutions and specialist collections within the M25 Consortium of Academic Libraries - helping you easily obtain resources from across London and the South East</p>
+		<p class="intro">Try Library Hopping today. Find out how here:</p>
+	<div id="video" style="width: 60%; height: 20em; margin-left: auto; margin-right: auto; border: 1px solid grey">
+	</div>
 	<xsl:if test="//Error">
 		<xsl:call-template name="error-message">
 			<xsl:with-param name="msg"><xsl:value-of select="//Error"/></xsl:with-param>
@@ -58,5 +65,11 @@
 	</xsl:if>
 </xsl:template>
 
+<xsl:template name="sidebar">
+	<p>
+		<a href="http://www.m25lib.ac.uk" target="_new"><img src="images/search25/m25logo_transparent.png" alt="M25 Consortium Logo"/></a></p>
+	<p>
+	<a href="http://www.jisc.ac.uk" target="_new"><img src="images/search25/jisclogogif_001.gif" alt="JISC Logo" style="margin-left: 25px;"/></a></p>
+</xsl:template>
 
 </xsl:stylesheet>
