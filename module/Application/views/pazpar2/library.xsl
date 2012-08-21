@@ -154,25 +154,25 @@
 		<xsl:if test="(find_tube != '') or (find_train != '') or (find_bus != '') or (find_other != '') or (find_parking != '')">
 			<span class="heading">Travel information</span><br/>
 			<xsl:if test="find_tube != ''">
-				<span class="title">Tube: </span><span class="info"><xsl:value-of select="find_tube"/></span><br/>
+				<span class="title">Tube: </span><span class="info"><xsl:value-of select="find_tube" disable-output-escaping="yes"/></span><br/>
 			</xsl:if>
 			<xsl:if test="find_train != ''">
-				<span class="title">Train: </span><span class="info"><xsl:value-of select="find_train"/></span><br/>
+				<span class="title">Train: </span><span class="info"><xsl:value-of select="find_train" disable-output-escaping="yes"/></span><br/>
 			</xsl:if>
 			<xsl:if test="find_bus != ''">
-				<span class="title">Bus: </span><span class="info"><xsl:value-of select="find_bus"/></span><br/>
+				<span class="title">Bus: </span><span class="info"><xsl:value-of select="find_bus" disable-output-escaping="yes"/></span><br/>
 			</xsl:if>
 			<xsl:if test="find_parking != ''">
-				<span class="title">Parking: </span><span class="info"><xsl:value-of select="find_parking"/></span><br/>
+				<span class="title">Parking: </span><span class="info"><xsl:value-of select="find_parking" disable-output-escaping="yes"/></span><br/>
 			</xsl:if>
 			<xsl:if test="find_other != ''">
-				<span class="title">General: </span><span class="info"><xsl:value-of select="find_other"/></span><br/>
+				<span class="title">General: </span><span class="info"><xsl:value-of select="find_other" disable-output-escaping="yes"/></span><br/>
 			</xsl:if>
 			<br />
 		</xsl:if>
 		<xsl:if test="notes != ''">
 			<span class="heading">General notes</span><br/>
-			<span class="info"><xsl:value-of select="notes"/></span>
+			<span class="info"><xsl:value-of select="notes" disable-output-escaping="yes"/></span>
 			<br />
 		</xsl:if>
 	</xsl:for-each>
