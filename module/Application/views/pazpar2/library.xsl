@@ -144,10 +144,10 @@
 		<xsl:if test="(visitor_information != '') or (opac_url != '')">
 			<span class="heading">Links</span><br/>
 			<xsl:if test="visitor_information_url != ''">
-				<a href="{visitor_information_url}">Visitor information</a><br />
+				<a href="{visitor_information_url}" target="_blank">Visitor information</a><br />
 			</xsl:if>
 			<xsl:if test="opac_url != ''">
-				<a href="{opac_url}">Library Catalogue</a><br />
+				<a href="{opac_url}" target="_blank">Library Catalogue</a><br />
 			</xsl:if>
 			<br />
 		</xsl:if>
