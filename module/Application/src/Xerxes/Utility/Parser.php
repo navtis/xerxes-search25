@@ -181,7 +181,7 @@ class Parser
 	public static function escapeXml( $string )
 	{
 		$string = trim($string);
-		
+                
 		$string = str_replace('&', '&amp;', $string);
 		$string = str_replace('<', '&lt;', $string);
 		$string = str_replace('>', '&gt;', $string);
@@ -194,7 +194,7 @@ class Parser
 		// trying to catch unterminated entity references
 		
 		$string = preg_replace('/(&#[a-hA-H0-9]{2,5})\s/', "$1; ", $string);
-		
+               
 		return $string;
 	}
 

@@ -49,7 +49,8 @@
              API, or Database. Current working values are Config and Api -->
         <config name="datasource" pass="true">Api</config> 
         <!-- Only required if Api is being used as datasource -->
-        <config name="apiurl">http://xerxes.inform25.ac.uk:5225</config>
+        <!-- <config name="apiurl">http://xerxes.inform25.ac.uk:5225</config> -->
+        <config name="apiurl">http://localhost:5225</config>
 
         <!-- Target details for(use with pazpar2 conf files in data/pazpar2) -->
         <!-- Used by ConfigTargets -->

@@ -136,7 +136,7 @@
 				<span class="heading">Phone: </span><xsl:value-of select="phone"/><br />
 			</xsl:if>
 			<xsl:if test="email != ''">
-				<span class="heading">Email: </span><xsl:value-of select="email"/><br />
+				<span class="heading">Email: </span><a href="mailto:{email}"><xsl:value-of select="email"/></a><br />
 			</xsl:if>
 			<br />
 			</xsl:otherwise>
@@ -149,6 +149,31 @@
 			<xsl:if test="opac_url != ''">
 				<a href="{opac_url}">Library Catalogue</a><br />
 			</xsl:if>
+			<br />
+		</xsl:if>
+		<xsl:if test="(find_tube != '') or (find_train != '') or (find_bus != '') or (find_other != '') or (find_parking != '')">
+			<span class="heading">Travel information</span><br/>
+			<xsl:if test="find_tube != ''">
+				<span class="title">Tube: </span><span class="info"><xsl:value-of select="find_tube"/></span><br/>
+			</xsl:if>
+			<xsl:if test="find_train != ''">
+				<span class="title">Train: </span><span class="info"><xsl:value-of select="find_train"/></span><br/>
+			</xsl:if>
+			<xsl:if test="find_bus != ''">
+				<span class="title">Bus: </span><span class="info"><xsl:value-of select="find_bus"/></span><br/>
+			</xsl:if>
+			<xsl:if test="find_parking != ''">
+				<span class="title">Parking: </span><span class="info"><xsl:value-of select="find_parking"/></span><br/>
+			</xsl:if>
+			<xsl:if test="find_other != ''">
+				<span class="title">General: </span><span class="info"><xsl:value-of select="find_other"/></span><br/>
+			</xsl:if>
+			<br />
+		</xsl:if>
+		<xsl:if test="notes != ''">
+			<span class="heading">General notes</span><br/>
+			<span class="info"><xsl:value-of select="notes"/></span>
+			<br />
 		</xsl:if>
 	</xsl:for-each>
 </xsl:template>

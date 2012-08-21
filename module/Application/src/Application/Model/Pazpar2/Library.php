@@ -113,7 +113,15 @@ class Library extends DataValue
 	    $xml->documentElement->setAttribute("pz2_key", $this->pz2_key);
 	    foreach( $this->vars as $k => $v )
             {
-	        $node = $xml->createElement($k, htmlentities($v));
+                //$node = $xml->createElement($k, htmlentities($v));
+                if ( htmlentities($v) != $v)
+                {
+                    $sect = $xml->createCDataSection($v);
+                    $node = $xml->createElement($k);
+                    $node->appendChild($sect);
+                }
+                else
+                    $node = $xml->createElement($k, $v);
 		$xml->documentElement->appendChild($node);
             }
 	    return $xml;
