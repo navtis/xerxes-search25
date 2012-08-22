@@ -123,6 +123,9 @@
 		<xsl:if test="description">
 			<p><xsl:value-of select="description"/></p>
 		</xsl:if>
+		<xsl:if test="subjects">
+			<p>The library specialises in the following subjects: <xsl:value-of select="subjects"/></p>
+		</xsl:if>
 		<xsl:choose>
 			<xsl:when test="type = 'virtual'"/>
 			<xsl:otherwise>
