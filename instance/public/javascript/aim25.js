@@ -22,7 +22,7 @@ $(document).ready(function(){
         {
             if (data['hits'] > 0)
             {
-                $('#aim25-hits > p > a').attr("href", data['url']);
+                $('#aim25-hits > a').attr("href", data['url']);
                 $('#aim25-hitcount').text(data['hits']);
                 $('#aim25-hits').show();
             }
