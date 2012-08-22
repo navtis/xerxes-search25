@@ -37,7 +37,8 @@
         <xsl:call-template name="jslabels" /> 
             <script src="javascript/jquery/jquery-1.6.2.min.js" language="javascript" type="text/javascript"></script> 
             <script src="javascript/results.js" language="javascript" type="text/javascript"></script>
-            <script src="javascript/pz2_ping.js" language="javascript" type="text/javascript"></script>
+	    <script src="javascript/pz2_ping.js" language="javascript" type="text/javascript"></script>
+	     <script src="javascript/aim25.js" language="javascript" type="text/javascript"></script>
     </xsl:template>
 
      <xsl:template match="/*">
@@ -60,12 +61,12 @@
 		    </xsl:call-template>
 	    <!--    <xsl:call-template name="searchbox" />  -->
         </div> 
-	<!--        <div class="yui-u"> 
+	<div class="yui-u"> 
             <div class="sidebar"> 
-                <xsl:call-template name="options_sidebar" /> 
+                <xsl:call-template name="sidebar_box" /> 
             </div> 
 	</div>
-	-->
+	
     </div> 
     <xsl:variable name="sidebar"> 
         <xsl:choose> 

@@ -123,7 +123,7 @@
 		<xsl:if test="description">
 			<p><xsl:value-of select="description"/></p>
 		</xsl:if>
-		<xsl:if test="subjects">
+		<xsl:if test="subjects and subjects != ''">
 			<p>The library specialises in the following subjects: <xsl:value-of select="subjects"/></p>
 		</xsl:if>
 		<xsl:choose>

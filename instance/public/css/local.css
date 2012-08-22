@@ -259,6 +259,15 @@ button#holdings-toggle{
 	margin: 1em 0 1em 4em;
 }
 
+/* shrink box for related searches */
+.sidebar .box {
+	margin-left: 1em;
+	margin-bottom: 0.5em;
+}
+.sidebar {
+	margin: 0.5em;
+}
+
 /* for additional target status column on right of results page */
 
 .status {

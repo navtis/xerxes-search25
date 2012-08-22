@@ -44,6 +44,10 @@
         <!-- allowed upper limit on records_per_page -->
         <config name="max_records_per_page">100</config>
 
+        <config name="aim25_hits" pass="true">true</config>
+        <config name="search_copac" pass="true">true</config>
+        <config name="search_suncat" pass="true">true</config>
+
         <!-- Prefix for the name of the class which extends Pazpar2/Targets
              and related classes. Data may come from Config file, external
              API, or Database. Current working values are Config and Api -->

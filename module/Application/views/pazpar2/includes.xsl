@@ -61,7 +61,7 @@
     <xsl:template name="session-data">
         <!-- see http://www.w3.org/TR/html5/elements.html#embedding-custom-non-visible-data-with-the-data-attributes -->
         <!-- this is used by javascript and not a real hidden field -->
-        <span id="pz2session" data-value="{//request/session/pz2session}" />
+        <span id="pz2session" data-value="{//request/session/pz2session}" data-querystring="{//request/session/querystring}" />
     </xsl:template>
 
 
@@ -103,6 +103,46 @@
 			</ul>
 		</div>
 	</xsl:template>
+
+	<xsl:template name="sidebar_box">
+		<div id="account" class="box">
+			<!--		<h2><xsl:copy-of select="$text_link_options" /></h2> -->
+			<ul>
+				<xsl:if test="//config/aim25_hits=true()">
+		            <xsl:call-template name="aim25_hits"/>
+                </xsl:if>
+                <xsl:if test="//config/search_copac = true()">
+		            <xsl:call-template name="search_copac"/>
+                </xsl:if>
+                <xsl:if test="//config/search_suncat = true()">
+		            <xsl:call-template name="search_suncat"/>
+                </xsl:if>
+            </ul>
+        </div>
+    </xsl:template>
+
+
+    <xsl:template name="search_copac">
+      <xsl:if test="//externalLinks/COPAC">
+        <li id="search_copac">
+            Try outside the M25 libraries with <a href="{//externalLinks/COPAC}" target="_blank">the same search in COPAC</a>
+        </li>
+      </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="search_suncat">
+      <xsl:if test="//externalLinks/SUNCAT">
+        <li id="search_suncat">
+            Find more journals with <a href="{//externalLinks/SUNCAT}" target="_blank">the same search in SunCat</a>
+        </li>
+      </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="aim25_hits">
+        <li class="hidden" id="aim25-hits">
+            Also found: <span id="aim25-hitcount"></span> AIM25 <a href="" target="_blank">archive collections</a> that may relate to your search
+        </li>
+</xsl:template>
 
     <!-- override search/results tab so no count unless live -->
     <xsl:template name="tab"> 

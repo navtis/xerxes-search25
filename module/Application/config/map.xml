@@ -76,5 +76,12 @@
                 <view>pazpar2/contact.xsl</view>
             </action>
         </controller>
-
+        <controller name="aim25" class="Application\Controller\Aim25Controller" inherits="search" > 
+            <action name=""> 
+                <view>aim25/index.xsl</view> 
+            </action> 
+            <action name="index"> 
+                <view>aim25/index.xsl</view> 
+            </action> 
+        </controller>
 </xerxes>

@@ -39,7 +39,8 @@ class UserOptions
         // maximum records to fetch from search
         'max_records' => 'string', 
         // pazpar2 session id
-        'pz2session' => 'string'
+        'pz2session' => 'string',
+        'aim25session' => 'string'
     );
     public $target_fields = array('names', 'subjects', 'distances', 'entitlements');
     public $role_fields = array('affiliation', 'readable_affiliation', 'role', 'readable_role');
@@ -211,7 +212,7 @@ class UserOptions
     {       
         if ( ! ( array_key_exists( $key, $this->valid_keys ) ) )
         {
-            throw new Exception("Getting invalid pazpar2 session data $key");
+            throw new \Exception("Getting invalid pazpar2 session data $key");
         }
         return $this->container->offsetGet($key);
     }

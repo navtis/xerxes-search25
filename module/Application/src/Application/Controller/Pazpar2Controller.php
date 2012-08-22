@@ -260,9 +260,30 @@ class Pazpar2Controller extends SearchController
             }
             // keep the session number for the AJAX code in the output HTML
             $this->request->setSessionData('pz2session', $sid);
+
+            $params = $this->query->getAllSearchParams();
+            $pairs=array();
+            foreach($params as $k => $v){
+                if (is_array($v))
+                {
+                    foreach($v as $e)
+                    {
+                        $pairs[] = "$k=$e";
+                    }
+                }
+                else
+                {
+                    $pairs[] = "$k=$v";
+                }
+            }
+            $query_string = implode('&amp;', $pairs);
+            // needed by javascript (currently only for aim25)
+            $this->request->setSessionData('querystring', $query_string);
+
             $targets = $uo->getSessionData('targets');
             $type = $uo->getSessionData('source_type');
             $targets = new Targets($type, $targets);
+            $result->setVariable('externalLinks', $this->helper->addExternalLinks($this->config));
             $result->setVariable('useroptions', $uo);
             $result->setVariable('targets', $targets->getTargetNames()); // needed for the facets
             //$result['status'] = $status->getTargetStatuses($this->query->getTargets());

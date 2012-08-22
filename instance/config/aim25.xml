@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xerxes>
+
+	<configuration>
+	
+        <!-- include AIM25 links for M25 -->
+        <config name="aim25_zurl">128.86.236.71:2100/aim25</config>
+        <config name="aim25_httpurl">http://www.aim25.ac.uk/cgi-bin/</config>
+
+	</configuration>
+	
+</xerxes>
