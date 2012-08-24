@@ -31,18 +31,16 @@
     <xsl:call-template name="record" />
 </xsl:template>
 
-<!-- turn off the sidebar temporarily -->
-<xsl:template name="sidebar_wrapper"/>
 
     <!-- 
          TEMPLATE: SIDEBAR 
     --> 
     <xsl:template name="sidebar"> 
         <!-- <xsl:call-template name="account_sidebar" /> -->
-        <xsl:if test="//config/external_isn_link">
+	<xsl:if test="//config/external_isn_link">
 		    <xsl:call-template name="external_links"/>
         </xsl:if>
-	<xsl:call-template name="citation" />  
+	<!-- <xsl:call-template name="citation" /> --> 
     </xsl:template>
 
     <xsl:template name="external_links">

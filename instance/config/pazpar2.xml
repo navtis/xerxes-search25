@@ -117,8 +117,15 @@
         </config>
 
         <!-- do we support 'more like this' issn/isbn based links? -->
-        <config name="external_isn_link" xml="true" pass="true">false</config>
-
+        <config name="external_isn_link" xml="true" pass="true">
+            <option id="copac" public="Copac" type="isn" url="http://copac.ac.uk/search?isn=____" active="true" /> 
+            <option id="suncat" public="SunCat" type="issn" url="http://suncat.edina.ac.uk/F?func=find-b&amp;find_code=ISSN&amp;request=____" active="false"/> 
+            <option id="worldcat" public="WorldCat" type="isn" url="http://www.worldcat.org/search?qt=worldcat_org_all&amp;q=____" active="true"/> 
+            <option id="googlebooks" public="Google_Books" type="isbn" url="http://books.google.com/book?vid=ISBN____" active="false" /> 
+            <option id="amazon" public="Amazon" type="isbn" url="http://amazon.co.uk/dp/____" active="true" /> 
+            <option id="librarything" public="LibraryThing" type="isbn" url="http://www.librarything.com/isbn/____" active="false" /> 
+            <option id="abebooks" public="AbeBooks" type="isbn" url="http://dogbert.abebooks.co.uk/abe/BookSearch?sortby=2&amp;isbn=____" active="true" /> 
+        </config>
     </configuration>
 	
 </xerxes>
