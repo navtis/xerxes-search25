@@ -101,8 +101,8 @@
         </config>
 
         <config name="sourcetype" xml="true" pass="true">
-            <option id="library" public="M25 Member" default="true"/>
-            <option id="uls" public="Unified List of Serials"/>
+            <option id="library" public="M25 Libraries" default="true"/>
+            <option id="uls" public="Union List of Serials"/>
         </config>
 
         <config name="groupby" xml="true" pass="true">

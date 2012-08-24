@@ -193,8 +193,8 @@
 
        <xsl:if test="//pazpar2options/user-options/source_type">
 	       <div class="set-option">
-		       <h2>Select library type to search</h2>
-		       <p>The default search is across all the M25 libraries, but you can search the Unified List of (print) Serials instead</p>
+		       <h2>Select Resource type to search</h2>
+		       <p>The default search is across all the M25 libraries, but you can search the Union List of (print) Serials instead</p>
 			<form action="/pazpar2/options" id="sourcetype_form" method="post">
                     		<select id="sourcetype" name="sourcetype">
 					<option value=""> -- Select type -- </option>
