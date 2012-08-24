@@ -445,7 +445,7 @@ xmlns:php="http://php.net/xsl" exclude-result-prefixes="php">
 	<xsl:template name="text_results_format">
 		<xsl:param name="format" />
 		<xsl:choose>
-			<xsl:when test="$format = 'Generic'">Generic</xsl:when>
+			<xsl:when test="$format = 'Generic'">Unknown format</xsl:when>
 			<xsl:when test="$format = 'AbstractOfWork'">Abstract</xsl:when>
 			<xsl:when test="$format = 'AggregatedDatabase'">Aggregated database</xsl:when>
 			<xsl:when test="$format = 'AncientText'">Historic text</xsl:when>
@@ -507,7 +507,7 @@ xmlns:php="http://php.net/xsl" exclude-result-prefixes="php">
 			<xsl:when test="$format = 'PhysicalObject'">Physical object</xsl:when>
 			<xsl:when test="$format = 'Review'">Review</xsl:when>
 			<xsl:when test="$format = 'Article'">Journal article</xsl:when>
-			<xsl:when test="$format = 'Unknown'"></xsl:when>
+			<xsl:when test="$format = 'Unknown'">Unknown</xsl:when>
 			<xsl:when test="$format = 'Periodical'">Periodical</xsl:when>
 			<xsl:otherwise>
 				<xsl:value-of select="$format" />
@@ -519,7 +519,7 @@ xmlns:php="http://php.net/xsl" exclude-result-prefixes="php">
 	<xsl:template name="text_limit_format">
 		<xsl:param name="format" />
 		<xsl:choose>
-			<xsl:when test="$format = 'GEN'">Generic</xsl:when>
+			<xsl:when test="$format = 'GEN'">Unknown</xsl:when>
 			<xsl:when test="$format = 'ABS'">Abstract</xsl:when>
 			<xsl:when test="$format = 'AGGR'">Aggregated database</xsl:when>
 			<xsl:when test="$format = 'ANCIENT'">Historic text</xsl:when>
