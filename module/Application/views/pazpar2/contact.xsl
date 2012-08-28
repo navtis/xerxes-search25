@@ -51,8 +51,6 @@
 		<xsl:otherwise>
 	<p>If you have any comments on this service this form will send them to us. We are particularly grateful for reports of bugs and errors, so that we can try to fix them.</p>
 	<p>Your email adress is optional, but without it we will not be able to reply to you.</p>
-	Success: <xsl:value-of select="//success"/>
-	Body: <xsl:value-of select="//msg"/>
 	<form action="" method="post" id="contact-form">
 		<label for="name">Name:</label> 
 			<input type="text" name="name" id="name" /> 
