@@ -354,9 +354,9 @@ class Pazpar2Controller extends SearchController
             if ( $this->request->getParam('submit-comment') == 'Submit' )
             {
                 $email = $this->config->getConfig('contact_email', false);
-                $name = filter_var($this->request->getParam('name'), FILTER_SANITIZE_ENCODED);
+                $name = filter_var($this->request->getParam('name'), FILTER_SANITIZE_STRING);
                 $userEmail = filter_var($this->request->getParam('email'), FILTER_VALIDATE_EMAIL);
-                $message = filter_var($this->request->getParam('message'), FILTER_SANITIZE_ENCODED);
+                $message = filter_var($this->request->getParam('message'), FILTER_SANITIZE_STRING);
                 if ($message != '')
                 {
                     $body = "Name: $name\n";

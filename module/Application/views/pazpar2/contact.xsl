@@ -44,6 +44,11 @@
 	
 <xsl:template name="main">
 	<h1>Contact Us</h1>
+	<xsl:choose>
+		<xsl:when test="//success='1'">
+			<p>Thank you for your comments, which have been sent on to the Search25 team.</p>
+		</xsl:when>
+		<xsl:otherwise>
 	<p>If you have any comments on this service this form will send them to us. We are particularly grateful for reports of bugs and errors, so that we can try to fix them.</p>
 	<p>Your email adress is optional, but without it we will not be able to reply to you.</p>
 	Success: <xsl:value-of select="//success"/>
@@ -57,6 +62,8 @@
 		<textarea name="message" rows="20" cols="20" id="message"></textarea> 
 		<input type="submit" name="submit-comment" value="Submit" class="submit-button" />
 	</form>
+		</xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
 
 <xsl:template name="sidebar">
