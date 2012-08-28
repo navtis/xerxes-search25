@@ -344,10 +344,18 @@ class Pazpar2Controller extends SearchController
 
     /* STATIC PAGES */
 
-        public function aboutAction(){}
-        public function faqAction(){}
-        public function contactAction(){}
-        public function librariesAction(){}
+        public function aboutAction(){
+            return $this->data; // required for configuration vars
+        }
+        public function faqAction(){
+            return $this->data;
+        }
+        public function contactAction(){
+            return $this->data;
+        }
+        public function librariesAction(){
+            return $this->data;
+        }
 
 
     /* AJAX CALLS */
