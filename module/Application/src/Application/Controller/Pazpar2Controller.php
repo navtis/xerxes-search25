@@ -362,7 +362,7 @@ class Pazpar2Controller extends SearchController
                     $body = "Name: $name\n";
                     $body .= "Email: $userEmail\n";
                     $body .= "Message: $message\n";
-                    $success = mail('graham@theseamans.net', 'Search25 Feedback', $body);
+                    $success = mail($email, 'Search25 Feedback', $body, "From: Search25 Contact Form");
                     $this->data->setVariable('success', $success);
                 }
             }
