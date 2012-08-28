@@ -47,11 +47,6 @@
 	<div id="faq">
 	<dl>
 
-		<dt>Where is the old Union List of Serials?
-		</dt>
-		<dd>The <a href="/pazpar2/options">Search options</a> page allows you to select the type of resource to search. Select the Union List of Serials in the drop-down in this section.
-		</dd>
-
 		<dt>What is Search25?</dt>
 		<dd>Search25 is a new regional resource discovery tool; providing one stop access to the library catalogues of over 50 world-renowned institutions and specialist collections within the <a href="http://www.m25lib.ac.uk" target="_blank">M25 Consortium of Academic Libraries</a>. Search25 makes it easier to search, locate and obtain resources at any library in the consortium, enabling users to benefit from the wealth of materials available to them. As a regional union catalogue, focused in and around the capital, Search25 provides librarians, students and academics with an exciting new research tool. It allows users to hop between a vast range of world-renowned large academic institutions and rare specialist collections densely packed in to South-East England, like no other service available.
 		</dd>
