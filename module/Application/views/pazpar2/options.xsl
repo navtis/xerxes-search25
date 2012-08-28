@@ -151,7 +151,7 @@
                 </xsl:if>
                 <li><span class="title">Libraries selected: </span>
                         <xsl:if test="//pazpar2options/user-options/source_type">
-                            <xsl:value-of select="//config/sourcetype/option[@id=//pazpar2options/user-options/source_type]/@public"/> libraries, 
+                            <xsl:value-of select="//config/sourcetype/option[@id=//pazpar2options/user-options/source_type]/@public"/>, 
                         </xsl:if>
                     By <xsl:value-of select="//pazpar2options/user-options/selectedby"/>
                 </li>
