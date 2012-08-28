@@ -1,3 +1,15 @@
+<?php 
+$host = gethostname();
+// REDIRECT IF ON LIVE SERVER
+if ($host == 'argos')
+{
+    header('Location: /pazpar2');
+    exit;
+}
+else{
+    //OTHERWISE SHOW THE DIAGNOSTICS
+?>
+
 <h1>An error occurred</h1>
 <h2><?php echo $this->message ?></h2>
 
@@ -19,3 +31,5 @@
 <?php endif ?>
 
 <?php endif ?>
+
+<?php } ?>
