@@ -37,13 +37,30 @@
 
 <xsl:template match="/*">
 	<xsl:call-template name="surround">
-		<xsl:with-param name="sidebar">none</xsl:with-param>
+		<xsl:with-param name="sidebar">right</xsl:with-param>
 	</xsl:call-template>
 </xsl:template>
 
 	
 <xsl:template name="main">
 	<h1>Contact Us</h1>
+	<p>If you have any comments on this service this form will send them to us. We are particularly grateful for reports of bugs and errors, so that we can try to fix them.</p>
+	<p>Your email adress is optional, but without it we will not be able to reply to you.</p>
+	Success: <xsl:value-of select="//success"/>
+	Body: <xsl:value-of select="//msg"/>
+	<form action="" method="post" id="contact-form">
+		<label for="name">Name:</label> 
+			<input type="text" name="name" id="name" /> 
+		<label for="email">Email:</label> 
+			<input type="text" name="email" id="email" /> 
+		<label for="message">Message:</label><br /> 
+		<textarea name="message" rows="20" cols="20" id="message"></textarea> 
+		<input type="submit" name="submit-comment" value="Submit" class="submit-button" />
+	</form>
+</xsl:template>
+
+<xsl:template name="sidebar">
+	<h2>Our address</h2>
 	<p>
 		M25 Support Team<br/>
 		LSE Library<br/>
@@ -51,11 +68,9 @@
 		London<br/>
 		WC2A 2HD<br/>
 		<br/>
-		020 7955 6451<br/>
-		<br/>
-		<a href="mailto:M25Libadmin@lse.ac.uk">M25Libadmin@lse.ac.uk</a>
+		Tel. 020 7955 6451<br/>
 	</p>	
-	</xsl:template>
+</xsl:template>
 
 
 </xsl:stylesheet>

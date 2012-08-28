@@ -351,6 +351,22 @@ class Pazpar2Controller extends SearchController
             return $this->data;
         }
         public function contactAction(){
+            if ( $this->request->getParam('submit-comment') == 'Submit' )
+            {
+                $email = $this->config->getConfig('contact_email', false);
+                $name = filter_var($this->request->getParam('name'), FILTER_SANITIZE_ENCODED);
+                $userEmail = filter_var($this->request->getParam('email'), FILTER_VALIDATE_EMAIL);
+                $message = filter_var($this->request->getParam('message'), FILTER_SANITIZE_ENCODED);
+                if ($message != '')
+                {
+                    $body = "Name: $name\n";
+                    $body .= "Email: $userEmail\n";
+                    $body .= "Message: $message\n";
+                    $success = mail('graham@theseamans.net', 'Search25 Feedback', $body);
+                    $this->data->setVariable('success', $success);
+                }
+            }
+
             return $this->data;
         }
         public function librariesAction(){

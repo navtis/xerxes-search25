@@ -5,6 +5,8 @@
         <config name="application_name" pass="true">Search25</config>	
         <config name="url">http://localhost:8004/search.pz2</config>
 
+        <config name="contact_email">graham@theseamans.net</config>
+
         <config name="basic_search_fields" xml="true" pass="true">
             <field id="title" public="title" internal="ti" />
             <field id="author" public="author" internal="au" />

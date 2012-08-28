@@ -80,6 +80,35 @@
 	display: block;
 }
 
+#contact-form { 
+	width: 600px; 
+	margin-top: 25px; 
+} 
+#contact-form input, #contact-form textarea { 
+	padding: 5px; 
+	width: 471px; 
+	font-size: 110%; 
+	margin: 0px 0px 10px 0px; 
+	border: 2px solid #ccc; 
+} 
+#contact-form textarea { 
+	height: 110px; 
+} 
+#contact-form textarea:focus, #contact-form input:focus { 
+	border: 2px solid #900; 
+} 
+#contact-form input.submit-button { 
+	width: 100px; 
+	float: right; 
+} 
+#contact-form label { 
+	float: left; 
+	text-align: right; 
+	margin-right: 15px; 
+	width: 100px; 
+	padding-top: 5px; 
+	font-size: 110%; 
+}
 
 /* experimental additions for pazpar2 */
 
