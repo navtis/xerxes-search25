@@ -80,7 +80,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
-				<xsl:when test="has_target">
+				<xsl:when test="no_libraries > 0">
 					<td><a title="Information about {short_name} libraries" href="/pazpar2/library?target={$key}">Library information</a></td>
 				</xsl:when>
 				<xsl:otherwise>
