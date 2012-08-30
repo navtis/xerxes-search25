@@ -61,22 +61,25 @@
                 <xsl:variable name="key"><xsl:value-of select="m25_code"/></xsl:variable>
 		<tr>
 			<td> <a href="{library_url}" title="Go directly to {short_name}"><xsl:value-of select="full_name" /></a></td>
-			<xsl:if test="has_target">
-				<xsl:choose>
-					<xsl:when test="has_target='t'">
-						<td style="background-color: green;"></td>
-					</xsl:when>
-					<xsl:otherwise>
-						<td style="background-color: red;"></td>
-					</xsl:otherwise>
-				</xsl:choose>
-			</xsl:if>
+			<xsl:choose>
+				<xsl:when test="has_target">
+					<xsl:choose>
+						<xsl:when test="has_target='t'">
+							<td style="background-color: green;"></td>
+						</xsl:when>
+						<xsl:otherwise>
+							<td style="background-color: red;"></td>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:when>
+				<xsl:otherwise><td></td></xsl:otherwise>
+			</xsl:choose>
 			<xsl:choose>
 				<xsl:when test="in_uls">
 					<td style="background-color: green;"></td>
 				</xsl:when>
 				<xsl:otherwise>
-					<td></td>
+					<td> </td>
 				</xsl:otherwise>
 			</xsl:choose>
 			<xsl:choose>
@@ -84,7 +87,7 @@
 					<td><a title="Information about {short_name} libraries" href="/pazpar2/library?target={$key}">Library information</a></td>
 				</xsl:when>
 				<xsl:otherwise>
-					<td></td>
+					<td> </td>
 				</xsl:otherwise>
 			</xsl:choose>
                 </tr>
