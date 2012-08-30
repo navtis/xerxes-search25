@@ -8,6 +8,7 @@ use Application\Model\Pazpar2\Engine,
     Application\Model\Pazpar2\Subjects,
     Application\Model\Pazpar2\Libraries,
     Application\Model\Pazpar2\UserOptions,
+    Application\Model\Pazpar2\ApiRaw,
     Application\Model\DataMap\SavedRecords,
     Application\View\Helper\Pazpar2 as SearchHelper,
     Zend\Mvc\MvcEvent,
@@ -370,6 +371,9 @@ class Pazpar2Controller extends SearchController
             return $this->data;
         }
         public function librariesAction(){
+            $pzt = new Affiliations();
+            $api = new ApiRaw('/institutions.json');
+            $this->data->setVariable('institutions', $api->getData());
             return $this->data;
         }
 
