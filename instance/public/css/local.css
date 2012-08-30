@@ -67,6 +67,12 @@
 	color: red;
 }
 
+table.institutions, table.institutions th, table.institutions td {
+	border: 1px solid #aaa;
+	margin: 5px;
+	padding: 5px;
+}
+
 #faq dl {
 }
 
