@@ -73,7 +73,7 @@
 		London<br/>
 		WC2A 2HD<br/>
 		<br/>
-		Tel. 020 7955 6451<br/>
+		Tel. 020 7955 6454<br/>
 	</p>	
 </xsl:template>
 

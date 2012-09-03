@@ -55,7 +55,7 @@
 	</xsl:if>
 
 		<p class="intro">Search25 provides one-stop access to the library catalogues of over 50 world-renowned institutions and specialist collections within the M25 Consortium of Academic Libraries - helping you easily obtain resources from across London and the South East</p>
-		<p class="intro">Try Library Hopping today. Find out how here:</p>
+		<p class="slogan">Try Library Hopping today. Find out how here:</p>
 	<div id="video" style="width: 60%; height: 20em; margin-left: auto; margin-right: auto; border: 1px solid grey">
 	</div>
 	<xsl:if test="//Error">
@@ -66,10 +66,10 @@
 </xsl:template>
 
 <xsl:template name="sidebar">
-	<p>
-		<a href="http://www.m25lib.ac.uk" target="_new"><img src="images/search25/m25logo_transparent.png" alt="M25 Consortium Logo"/></a></p>
-	<p>
-	<a href="http://www.jisc.ac.uk" target="_new"><img src="images/search25/jisclogogif_001.gif" alt="JISC Logo" style="margin-left: 25px;"/></a></p>
+	<a href="http://www.m25lib.ac.uk" target="_new" style="float:right"><img src="images/search25/m25logo_transparent.png" alt="M25 Consortium Logo"/></a><div style="clear:both"/>
+		<p>The <a href="http://www.m25lib.ac.uk" target="_blank">M25 Consortium of Academic Libraries</a> is a collaborative organisation that works to improve library and information services within the M25 region and more widely across the east and Southeast</p>
+	<a href="http://www.jisc.ac.uk" target="_new" style="float:right"><img src="images/search25/jisclogogif_001.gif" alt="JISC Logo" style="margin-left: 25px;"/></a>
+		<p>Initial development of Search25 was funded by the M25 Consortium and <a href="http://www.jisc.ac.uk">JISC</a></p>
 </xsl:template>
 
 </xsl:stylesheet>

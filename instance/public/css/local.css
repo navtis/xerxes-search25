@@ -73,6 +73,11 @@ table.institutions, table.institutions th, table.institutions td {
 	padding: 5px;
 }
 
+.slogan {
+	font-size: 110%;
+	font-style: italic;
+	color: #333;
+}
 #faq dl {
 }
 
