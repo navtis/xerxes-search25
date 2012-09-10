@@ -19,6 +19,9 @@
 <xsl:import href="../includes.xsl" />
 <xsl:import href="eng.xsl" />
 
+<!-- hide record saving till working -->
+<xsl:template name="save_record" />
+
 <xsl:template name="header_div" >
         <div id="hd-banner">
 	<ul>
@@ -206,7 +209,7 @@
 		<li><img src="images/famfamfam/user.png"/>
 			<a href="/pazpar2/options"><xsl:value-of select="$text_options_module"/></a>
 		</li>
-
+		<!--
 			<li id="my-saved-records" class="sidebar-folder">
 				<xsl:call-template name="img_save_record">
 					<xsl:with-param name="id">folder</xsl:with-param>
@@ -218,7 +221,7 @@
 					<xsl:copy-of select="$text_header_savedrecords" />
 				</a>
 			</li>
-			
+	-->	
 		</ul>	
 	
 	</xsl:template>
