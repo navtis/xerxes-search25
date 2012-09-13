@@ -97,7 +97,9 @@ table.institutions, table.institutions th, table.institutions td {
 	margin-bottom: .5em;
 	display: block;
 }
-
+#faq ul {
+	list-style-type: circle;
+}
 #contact-form { 
 	width: 600px; 
 	margin-top: 25px; 
