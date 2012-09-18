@@ -98,8 +98,12 @@ table.institutions, table.institutions th, table.institutions td {
 	display: block;
 }
 #faq ul, #faq li {
-	list-style-type: circle;
+	list-style-type: disc;
 	list-style-position: inside;
+	color: #336699;
+}
+#faq li span {
+color: black;
 }
 #contact-form { 
 	width: 600px; 
