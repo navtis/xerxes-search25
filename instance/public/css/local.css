@@ -97,13 +97,12 @@ table.institutions, table.institutions th, table.institutions td {
 	margin-bottom: .5em;
 	display: block;
 }
-#faq ul, #faq li {
-	list-style-type: disc;
-	list-style-position: inside;
-	color: #336699;
+#faq ul {
+	margin-top: 0.5em;
 }
-#faq li span {
-color: black;
+#faq ul, #faq li {
+	list-style-type: circle;
+	list-style-position: inside;
 }
 #contact-form { 
 	width: 600px; 
