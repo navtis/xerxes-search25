@@ -44,9 +44,9 @@ class ApiTargets extends Targets
         $this->client->setUri($url.$command);
         $api_institutions = $this->client->send()->getBody();
         if ($type == null)
-            $command = "/z3950.json?active=true";
+            $command = "/z3950server.json?active=true";
         else
-            $command = "/z3950.json?active=true&source_type=$type";
+            $command = "/z3950server.json?active=true&source_type=$type";
         $this->client->setUri($url.$command);
         $api_targets = $this->client->send()->getBody();
         $api_institutions = json_decode($api_institutions, true);

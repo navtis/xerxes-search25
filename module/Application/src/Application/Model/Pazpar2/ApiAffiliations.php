@@ -136,7 +136,7 @@ class ApiAffiliations extends Affiliations
         }
         // filter out institutions without working z-server
         $targets = array();
-        $command = "/z3950.json?active=true&source_type=$type";
+        $command = "/z3950server.json?active=true&source_type=$type";
         $this->client->setUri( $this->apiurl.$command );
         $api_targets = $this->client->send()->getBody();
         $api_targets = json_decode( $api_targets, true );

@@ -188,7 +188,7 @@ class ApiSubjects extends Subjects
         }
         // filter out institutions without working z-server
         $targets = array();
-        $command = "/z3950.json?active=true";
+        $command = "/z3950server.json?active=true";
         $this->client->setUri( $this->url.$command );
         $api_targets = $this->client->send()->getBody();
         $api_targets = json_decode( $api_targets, true );
