@@ -15,6 +15,12 @@
             <field id="keyword" public="all fields" internal="any" />
         </config>
 
+        <config name="uls_search_fields" xml="true" pass="true">
+            <field id="title" public="title" internal="ti" />
+            <field id="subject"  public="subject" internal="su" />
+            <field id="identifier"  public="ISSN" internal="identifier" />
+        </config>
+
         <!-- sort fields must match pazpar2 config fields -->
         <config name="sort_options" xml="true" pass="true">
             <option id="title" public="Title" internal="title:1" />

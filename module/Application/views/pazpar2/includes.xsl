@@ -36,6 +36,73 @@
 	</div>
  </xsl:template>
 
+	<!--
+		TEMPLATE: SIMPLE SEARCH (overrides views/search/results.xsl)
+	-->
+	
+	<xsl:template name="simple_search">
+	
+		<xsl:variable name="query"	select="request/query" />
+
+		<div class="raised-box search-box">
+	
+			<div class="search-label">
+				<label for="field">Search</label><xsl:text> </xsl:text>
+			</div>
+			
+			<div class="search-inputs">
+				<xsl:choose>
+					<xsl:when test="//pazpar2options/user-options/source_type='uls'">
+						<xsl:call-template name="search-dropdown">
+							<xsl:with-param name="select-list" select="config/uls_search_fields/field"/>
+						</xsl:call-template>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:call-template name="search-dropdown">
+							<xsl:with-param name="select-list" select="config/basic_search_fields/field"/>
+						</xsl:call-template>
+					</xsl:otherwise>
+				</xsl:choose>
+	
+				<xsl:text> </xsl:text><label for="query"><xsl:value-of select="$text_searchbox_for" /></label><xsl:text> </xsl:text>
+				
+				<input id="query" name="query" type="text" size="32" value="{$query}" /><xsl:text> </xsl:text>
+				
+				<input type="submit" name="Submit" value="GO" class="submit-searchbox{$language_suffix}" />
+			
+			</div>
+			
+			<xsl:call-template name="search_refinement" />
+			
+			<xsl:call-template name="advanced_search_option" />
+			
+		</div>
+	
+	</xsl:template>
+
+	<xsl:template name="search-dropdown">
+		<xsl:param name="select-list"/>
+		<select id="field" name="field">
+			
+			<xsl:for-each select="$select-list">
+					
+				<xsl:variable name="internal">
+					<xsl:choose>
+						<xsl:when test="@id"><xsl:value-of select="@id" /></xsl:when>
+						<xsl:otherwise><xsl:value-of select="@internal" /></xsl:otherwise>
+					</xsl:choose>
+				</xsl:variable>
+			
+				<option value="{$internal}">
+					<xsl:if test="//request/field = $internal">
+						<xsl:attribute name="selected">selected</xsl:attribute>
+					</xsl:if>
+					<xsl:value-of select="@public" />
+				</option>
+				
+			</xsl:for-each>
+		</select>
+	</xsl:template>
 
 <xsl:template name="error-message">
 	<xsl:param name="msg"/>

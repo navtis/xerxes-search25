@@ -78,6 +78,7 @@ class Pazpar2 extends Search
                 'author' => 'author',
                 'isbn' => 'isn',
                 'issn' => 'isn',
+                'identifier' => 'isn',
                 'subject' => 'sub',
                 'keyword' => 'keyword',
             );
@@ -101,6 +102,7 @@ class Pazpar2 extends Search
                 'subject' => 'WSU',
                 'keyword' => 'WRD',
                 'issn' => 'ISSN',
+                'identifier' => 'ISSN'
              );
 
             $url = 'http://suncat.edina.ac.uk/F?func=find-b&';

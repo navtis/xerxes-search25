@@ -21,14 +21,14 @@ class Config extends Search\Config
 {
         protected $config_file = "config/pazpar2";
         private static $instance; // singleton pattern
-        
+
         public static function getInstance()
         {
                 if ( empty( self::$instance ) )
                 {
                         self::$instance = new Config();
                         $object = self::$instance;
-                        $object->init();                        
+                        $object->init(); 
                 }
                 return self::$instance;
         }

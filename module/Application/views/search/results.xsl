@@ -356,7 +356,7 @@
 					
 						<option value="{$internal}">
 							<xsl:if test="//request/field = $internal">
-								<xsl:attribute name="selected">seleted</xsl:attribute>
+								<xsl:attribute name="selected">selected</xsl:attribute>
 							</xsl:if>
 							<xsl:value-of select="@public" />
 						</option>

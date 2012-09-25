@@ -324,6 +324,7 @@ class Pazpar2Controller extends SearchController
         $this->helper->addRecordLinks($results); 
         $this->helper->addExternalRecordLinks($results, $this->config); 
         // add to response 
+        $this->data->setVariable('useroptions', $uo);
         $this->data->setVariable('results', $results);
         return $this->data; 
     }
