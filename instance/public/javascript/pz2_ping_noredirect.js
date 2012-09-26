@@ -26,7 +26,7 @@ $(document).ready(function(){
                 // carry on pinging unless session dead
                 if (data['live'] == 'false')
                 {
-                    alert("Debug: session died");
+                    //alert("Debug: session died");
                     clearInterval(pinger);
                 }
             },

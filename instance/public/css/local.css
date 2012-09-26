@@ -107,6 +107,15 @@ table.institutions, table.institutions th, table.institutions td {
 #faq li span {
   color: black;
 }
+/* index for faq page */
+ul#index li{
+	list-style-type: square;
+	padding: 0 0 0 0;
+}
+ul#index li a:hover {
+	text-decoration: none;
+}
+
 #contact-form { 
 	width: 600px; 
 	margin-top: 25px; 
