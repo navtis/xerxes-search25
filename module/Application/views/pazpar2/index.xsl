@@ -56,7 +56,8 @@
 
 		<p class="intro">Search25 provides one-stop access to the library catalogues of over 50 world-renowned institutions and specialist collections within the M25 Consortium of Academic Libraries - helping you easily obtain resources from across London and the South East</p>
 		<p class="slogan">Try Library Hopping today. Find out how here:</p>
-	<div id="video" style="width: 60%; height: 20em; margin-left: auto; margin-right: auto; border: 1px solid grey">
+		<div id="video" style="margin-left: auto; margin-right: auto;">
+			<img src="images/videomock.jpg" width="640" height="385" style="margin-left: auto; margin-right:auto" onclick="alert('Video coming soon')"/>
 	</div>
 	<xsl:if test="//Error">
 		<xsl:call-template name="error-message">
