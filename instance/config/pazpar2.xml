@@ -54,7 +54,7 @@
 
         <config name="aim25_hits" pass="true">true</config>
         <config name="search_copac" pass="true">true</config>
-        <config name="search_suncat" pass="true">true</config>
+        <config name="search_suncat" pass="true">false</config>
 
         <!-- Prefix for the name of the class which extends Pazpar2/Targets
              and related classes. Data may come from Config file, external
@@ -82,7 +82,7 @@
         <!-- do we support 'more like this' issn/isbn based links? -->
         <config name="external_isn_link" xml="true" pass="true">
             <option id="copac" public="Copac" type="isn" url="http://copac.ac.uk/search?isn=____" active="true" /> 
-            <option id="suncat" public="SunCat" type="issn" url="http://suncat.edina.ac.uk/F?func=find-b&amp;find_code=ISSN&amp;request=____" active="false"/> 
+            <option id="suncat" public="SunCat" type="issn" url="http://suncat.edina.ac.uk/F?func=find-b&amp;find_code=ISSN&amp;request=____" active="true"/> 
             <option id="worldcat" public="WorldCat" type="isn" url="http://fablibraries.worldcat.org/search?qt=wc_org_fablibraries&amp;q=____" active="true"/> 
             <option id="googlebooks" public="Google_Books" type="isbn" url="http://books.google.com/book?vid=ISBN____" active="false" /> 
             <option id="amazon" public="Amazon" type="isbn" url="http://amazon.co.uk/s/url=search-alias=aps&amp;field-keywords=____" active="true" /> 
