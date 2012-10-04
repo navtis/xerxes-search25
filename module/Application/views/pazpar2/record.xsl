@@ -34,11 +34,16 @@
     <!-- 
          TEMPLATE: SIDEBAR 
     --> 
-    <xsl:template name="sidebar"> 
-        <!-- <xsl:call-template name="account_sidebar" /> -->
-	<xsl:if test="//config/external_isn_link">
+    <xsl:template name="sidebar">
+	    <!-- <xsl:call-template name="account_sidebar" /> -->
+	<xsl:choose>		
+		<xsl:when test="//config/external_isn_link and //isn_links">
 		    <xsl:call-template name="external_links"/>
-        </xsl:if>
+        	</xsl:when>
+		<xsl:otherwise>
+			<xsl:attribute name="style">display:none</xsl:attribute>
+		</xsl:otherwise>
+	</xsl:choose>
 	<!-- <xsl:call-template name="citation" /> --> 
     </xsl:template>
 
