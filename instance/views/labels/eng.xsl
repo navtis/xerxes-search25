@@ -14,41 +14,43 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 xmlns:php="http://php.net/xsl" exclude-result-prefixes="php">
 
-    <xsl:variable name="text_header_options">Options</xsl:variable>
-    <xsl:variable name="text_header_my_options">Set user options</xsl:variable>
-    <xsl:variable name="text_header_select_library">Select libraries to search</xsl:variable>
-    <xsl:variable name="text_record_genres">Genres</xsl:variable>
-    <xsl:variable name="text_record_credits">Credits</xsl:variable>
-    <xsl:variable name="text_record_find_more">Find elsewhere</xsl:variable>
-    <xsl:variable name="text_record_frequency_label">Frequency</xsl:variable>
-    <xsl:variable name="text_record_geographic">Places</xsl:variable>
-    <xsl:variable name="text_record_no_holdings">Holdings information not available</xsl:variable>
-    <xsl:variable name="text_record_linkback">Original library catalogue entry</xsl:variable>
-    <xsl:variable name="text_record_availability">Available from</xsl:variable>
-    <xsl:variable name="text_record_catalogue_entry">catalogue entry</xsl:variable>
-    <xsl:variable name="text_record_organization_label">Organization</xsl:variable>
-    <xsl:variable name="text_record_publisher_label">Publisher</xsl:variable>
-    <xsl:variable name="text_record_place_label">Place</xsl:variable>
-	<xsl:variable name="text_region_libraries_desc">Select the regions or individual libraries you wish to search</xsl:variable>
-	<xsl:variable name="text_libraries_desc">Select the libraries you wish to search</xsl:variable>
-	<xsl:variable name="text_subjects_desc">Select the libraries to search by the subjects they specialise in</xsl:variable>
-	<xsl:variable name="text_access_desc">Select the libraries to search according to your access rights</xsl:variable>
-    <xsl:variable name="text_results_edition">Edition</xsl:variable>
-    <xsl:variable name="text_results_publisher">Published by</xsl:variable>
-    <xsl:variable name="text_options_module">Search options</xsl:variable>
-    <xsl:variable name="text_link_options">Related searches</xsl:variable>
-    <xsl:variable name="text_uls_search_module">ULS Print Journals</xsl:variable>
-    <xsl:variable name="text_search_module">M25 Library Catalogues</xsl:variable>
-    <xsl:variable name="text_search_hits_no_match">Sorry, your search did not match any records. You might try either changing your search term or enlarging the number of libraries searched</xsl:variable>
-
-
-  <!-- override treatment of language in labels/eng.xsl for results page -->
-  <xsl:template name="text_results_language">
-  	<xsl:if test="language and language != 'English'">
-		<span class="results-language"> (<xsl:value-of select="language" />)</span>
-	</xsl:if>
-  </xsl:template>
-
+<!-- 
+	TEXT LABELS 
+	Use this file to override English labels in the interface.  Simply copy and paste the variable
+	from the distribution lib/xsl/labels/eng.xsl and change the value here.
+-->
+    <xsl:variable name="text_header_options">Options</xsl:variable>
+    <xsl:variable name="text_header_my_options">Set user options</xsl:variable>
+    <xsl:variable name="text_header_select_library">Select libraries to search</xsl:variable>
+    <xsl:variable name="text_record_subjects">Subjects</xsl:variable>
+    <xsl:variable name="text_record_genres">Genres</xsl:variable>
+    <xsl:variable name="text_record_credits">Credits</xsl:variable>
+    <xsl:variable name="text_record_find_more">Find elsewhere</xsl:variable>
+    <xsl:variable name="text_record_frequency_label">Frequency</xsl:variable>
+    <xsl:variable name="text_record_geographic">Places</xsl:variable>
+    <xsl:variable name="text_record_no_holdings">Holdings information not available</xsl:variable>
+    <xsl:variable name="text_record_linkback">Original library catalogue entry</xsl:variable>
+    <xsl:variable name="text_record_availability">Available from</xsl:variable>
+    <xsl:variable name="text_record_catalogue_entry">catalogue entry</xsl:variable>
+    <xsl:variable name="text_record_organization_label">Organization</xsl:variable>
+    <xsl:variable name="text_record_publisher_label">Publisher</xsl:variable>
+    <xsl:variable name="text_record_place_label">Place</xsl:variable>
+	<xsl:variable name="text_region_libraries_desc">Select the regions or individual libraries you wish to search</xsl:variable>
+	<xsl:variable name="text_libraries_desc">Select the libraries you wish to search</xsl:variable>
+	<xsl:variable name="text_subjects_desc">Select the libraries to search by the subjects they specialise in</xsl:variable>
+	<xsl:variable name="text_access_desc">Select the libraries to search according to your access rights</xsl:variable>
+    <xsl:variable name="text_results_edition">Edition</xsl:variable>
+    <xsl:variable name="text_results_publisher">Published by</xsl:variable>
+    <xsl:variable name="text_options_module">User options</xsl:variable>
+    <xsl:variable name="text_uls_search_module">Find Print Journals</xsl:variable>
+    <xsl:variable name="text_search_module">Find Books and Journals</xsl:variable>
+    <!-- override treatment of language in labels/eng.xsl for results page -->
+    <xsl:template name="text_results_language">
+        <xsl:if test="language and language != 'English'">
+            <span class="results-language"> (<xsl:value-of select="language" />)</span>
+        </xsl:if>
+    </xsl:template>
+    
     <!-- Translate medium names from Xerxes internal : Displayable -->
 	<xsl:template name="text_results_format">
 		<xsl:param name="format" />
@@ -115,7 +117,7 @@ xmlns:php="http://php.net/xsl" exclude-result-prefixes="php">
 			<xsl:when test="$format = 'PhysicalObject'">Physical object</xsl:when>
 			<xsl:when test="$format = 'Review'">Review</xsl:when>
 			<xsl:when test="$format = 'Article'">Journal article</xsl:when>
-			<xsl:when test="$format = 'Unknown'">Unknown</xsl:when>
+			<xsl:when test="$format = 'Unknown'"></xsl:when>
 			<xsl:when test="$format = 'Periodical'">Periodical</xsl:when>
 			<xsl:otherwise>
 				<xsl:value-of select="$format" />

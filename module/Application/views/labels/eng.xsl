@@ -439,5 +439,4 @@ xmlns:php="http://php.net/xsl" exclude-result-prefixes="php">
 		<xsl:value-of select="$option" />
 	</xsl:template>
 
-
 </xsl:stylesheet>
