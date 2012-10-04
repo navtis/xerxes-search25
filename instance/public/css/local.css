@@ -446,3 +446,8 @@ div#progress{
 .subjectDatabaseInfo a{
     margin-left: 1em;
 }
+
+/* record page */
+table.holdings-table{
+	table-layout: fixed;
+}
