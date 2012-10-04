@@ -300,7 +300,11 @@ class Pazpar2Controller extends SearchController
     {
         $uo = new UserOptions($this->request);
         $sid = $uo->getSessionData('pz2session');
-        $targets = new Targets($uo->getSessionData('source_type'), $uo->getSessionData('targets'));
+        $single_target = $this->request->getParam('target');
+	if ($single_target != '') 
+        	$targets = new Targets($uo->getSessionData('source_type'), array($single_target));
+	else
+        	$targets = new Targets($uo->getSessionData('source_type'), $uo->getSessionData('targets'));
         $id = $this->request->getParam('id'); 
         $offset = $this->request->getParam('offset', null, true); 
         try
