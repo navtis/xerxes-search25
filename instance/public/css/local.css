@@ -48,7 +48,7 @@
 
 #hd-banner ul li a:link, a:visited, a:active {text-decoration: none}
 
-#hd-banner ul li a:hover {font-size: 105%}
+/* #hd-banner ul li a:hover {font-size: 105%} */
 
 #banner-logo{
 	float:right;
@@ -445,4 +445,9 @@ div#progress{
 }
 .subjectDatabaseInfo a{
     margin-left: 1em;
+}
+
+/* record page */
+table.holdings-table{
+	table-layout: fixed;
 }
