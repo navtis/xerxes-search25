@@ -48,7 +48,7 @@
 
 #hd-banner ul li a:link, a:visited, a:active {text-decoration: none}
 
-#hd-banner ul li a:hover {font-size: 105%}
+/* #hd-banner ul li a:hover {font-size: 105%} */
 
 #banner-logo{
 	float:right;
