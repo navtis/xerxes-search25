@@ -162,7 +162,7 @@
     <!-- 
     	TEMPLATE: NO HITS 
     --> 
-    <xsl:template name="no_hits"> 
+    <xsl:template name="no_hits">
 	    	<xsl:if test="not(results/total) or results/total = '0'"> 
 			<div class="no-hits error">
 				<xsl:value-of select="$text_search_hits_no_match" />

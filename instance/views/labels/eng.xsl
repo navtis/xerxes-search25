@@ -39,6 +39,7 @@ xmlns:php="http://php.net/xsl" exclude-result-prefixes="php">
 	<xsl:variable name="text_libraries_desc">Select the libraries you wish to search</xsl:variable>
 	<xsl:variable name="text_subjects_desc">Select the libraries to search by the subjects they specialise in</xsl:variable>
 	<xsl:variable name="text_access_desc">Select the libraries to search according to your access rights</xsl:variable>
+	<xsl:variable name="text_search_hits_no_match">No results found. You may wish to either change your search, or to use User Options above to alter the libraries searched</xsl:variable>
     <xsl:variable name="text_results_edition">Edition</xsl:variable>
     <xsl:variable name="text_results_publisher">Published by</xsl:variable>
     <xsl:variable name="text_options_module">User options</xsl:variable>
