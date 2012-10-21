@@ -221,7 +221,6 @@ class Pazpar2Controller extends SearchController
             $url = $this->request->url_for($params);
             return $this->redirect()->toUrl($url);
         }
-        
         $target_keys = $uo->getSessionData('targets');
         $type = $uo->getSessionData('source_type');
         $targets = new Targets($type, $target_keys);
