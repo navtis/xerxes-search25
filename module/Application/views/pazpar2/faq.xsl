@@ -183,7 +183,7 @@
 		</dd>
 
 		<dt><a id="feedback"></a>How do I report an error or give feedback on Search25?</dt>
-		<dd>There is an error and comments form on the <a href="/papzpar2/contact">Contact</a> page, which you can fill in.
+		<dd>There is an error and comments form on the <a href="/pazpar2/contact">Contact</a> page, which you can fill in.
 [<a href="#top" class="scroll">TOP</a>]
 		</dd>
 
