@@ -351,39 +351,42 @@ class Record extends Xerxes\Record
                 $linkback = $this->getElementValue($rec, "linkback_url");
                 if ( strlen( $linkback ) > 0 )
                 {
-                    $rid = $this->getElementValue($rec, "md-iii-id");
                     // is this an innopac library?
+                    $rid = $this->getElementValue($rec, "md-iii-id");
                     if ( strlen( $rid ) > 1 )
-                    {
+                    {		  
                         // remove leading . and trailing digit
                         $rid = preg_replace('/^\./', '', $rid);
                         $rid = substr($rid, 0 , -1);
-                        $linkback = preg_replace( '/____/', $rid, $linkback ); 
-                        $link = new Link($linkback, 'original', "Holdings information in $loc_title Library catalogue");
-                        $hs->addLink($link);
-                    } 
+                    }
                     else
                     {
-                        $rid = $this->getElementValue($rec, "md-id");
-                        if ( strlen( $rid ) > 1 )
+                    	// is this a Koha library?
+                    	$rid = $this->getElementValue($rec, "md-koha-id");
+                        // default to any other LMS
+                        if (! strlen( $rid ) > 1 )
                         {
+                            $rid = $this->getElementValue($rec, "md-id");
                             // FIXME get me out of here
                             if ( preg_match('/^UCL/', $rid) )
                             {
                                 $rid = substr( $rid, -9);
                             }
-
-                            $linkback = preg_replace( '/____/', $rid, $linkback ); 
-                            $link = new Link($linkback, 'original', "Holdings information in $loc_title Library catalogue");
-                            $hs->addLink($link);
-                        }
-                        else
-                        {
-                            // can't create a link without an id
                         }
                     }
+                    // after all that, do we have an id?		
+                    if ( strlen( $rid ) > 1 )
+                    {
+                        $linkback = preg_replace( '/____/', $rid, $linkback ); 
+                        $link = new Link($linkback, 'original', "Holdings information in $loc_title Library catalogue");
+                        $hs->addLink($link);
+                    }
+                    else
+                    {
+                        // can't create a link without an id
+                    }
                 }
-
+          
                 //if an electronic url, storeit
                 $els = $rec->getElementsByTagname("md-electronic-url");
                 $source = $this->getElementValue($rec, "md-journal-title");
