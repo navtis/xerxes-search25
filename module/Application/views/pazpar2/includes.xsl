@@ -194,7 +194,7 @@
     <xsl:template name="search_copac">
       <xsl:if test="//externalLinks/COPAC">
         <li id="search_copac">
-            Try outside the M25 libraries with <a href="{//externalLinks/COPAC}" target="_blank">the same search in COPAC</a>
+            Try outside the M25 libraries with <a href="{//externalLinks/COPAC}" target="_blank" title="Copac National, Academic, and Specialist library catalogue">the same search in Copac</a>
         </li>
       </xsl:if>
     </xsl:template>
