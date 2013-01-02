@@ -43,6 +43,9 @@
             <action name="search">
                 <view>pazpar2/search.xsl</view>
             </action>
+            <action name="remote">
+                <view>pazpar2/search.xsl</view>
+            </action>
             <action name="status">
                 <view>pazpar2/status.xsl</view>
             </action>

@@ -57,8 +57,7 @@
 		<p class="intro">Search25 helps you discover library resources across London and the South East. You can also see where the libraries are and find out how to visit them.</p>
 		<p class="slogan">Try Library Hopping today. Find out how here:</p>
 		<div id="video" style="margin-left: auto; margin-right: auto;">
-			<iframe width="640" height="360" src="http://www.youtube-nocookie.com/embed/0L_POBn_3F4?rel=0" frameborder="0" allowfullscreen="allowfullscreen"></iframe><!--
-			<img src="images/videomock.jpg" width="640" height="385" style="margin-left: auto; margin-right:auto" onclick="alert('Video coming soon')"/> -->
+			<iframe width="640" height="360" src="http://www.youtube-nocookie.com/embed/0L_POBn_3F4?rel=0" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 	</div>
 	<xsl:if test="//Error">
 		<xsl:call-template name="error-message">

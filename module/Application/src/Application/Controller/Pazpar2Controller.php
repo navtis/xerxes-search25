@@ -36,6 +36,8 @@ class Pazpar2Controller extends SearchController
      * to redirect on errors */
     public function indexAction()
     {
+        // get any useroptions to set up the search dropdown
+        $uo = new UserOptions($this->request);
         // if sent back here by exception, display any message
         $flashMessenger = $this->flashMessenger();
         if ($flashMessenger->hasMessages()) {
@@ -146,6 +148,18 @@ class Pazpar2Controller extends SearchController
 
         $this->data->setVariable('useroptions', $uo);
         return($this->data);
+    }
+
+    /* Used by direct accesses (usually from SFX) where the user
+     * has not previously selected any options, so that options
+     * have to be set directly in GET parameters
+     */
+    public function remoteAction()
+    {
+        $this->engine->clearPazpar2Client();
+        $this->nameoptionsAction();
+        $this->request->setParam( 'Submit', 'GO' );
+        $this->searchAction();
     }
 
     /* SearchAction kicks off a new search with a new 
