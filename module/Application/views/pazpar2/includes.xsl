@@ -28,6 +28,7 @@
 		<li><a href="/pazpar2/about">ABOUT</a></li>
 		<li><a href="/pazpar2/faq">FAQ</a></li>
 		<li><a href="/pazpar2/libraries">LIBRARIES</a></li>
+		<li><a href="/pazpar2/access">ACCESS</a></li>
 		<li><a href="/pazpar2/contact">CONTACT</a></li>
 	</ul>
         <xsl:call-template name="searchbox" />

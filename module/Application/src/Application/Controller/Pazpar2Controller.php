@@ -403,6 +403,9 @@ class Pazpar2Controller extends SearchController
         public function faqAction(){
             return $this->data;
         }
+        public function accessAction(){
+            return $this->data;
+        }
         public function contactAction(){
             if ( $this->request->getParam('submit-comment') == 'Submit' )
             {
