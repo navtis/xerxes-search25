@@ -75,7 +75,6 @@
 			<xsl:call-template name="search_refinement" />
 			
 			<xsl:call-template name="advanced_search_option" />
-			
 		</div>
 	
 	</xsl:template>
@@ -108,6 +107,20 @@
 	<xsl:param name="msg"/>
 	<div class="comms-box error-box"><xsl:value-of select="$msg"/></div>
 </xsl:template>
+
+<!--
+<xsl:template name="breadcrumb">
+	<span>Currently searching: </span>
+	<xsl:choose>
+		<xsl:when test="//pazpar2options/user-options/source_type='uls'">
+			<span>Union List of Serials</span>
+		</xsl:when>
+		<xsl:otherwise>
+			<span>M25 Libraries</span>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+-->
 
 <xsl:template name="breadcrumb_start">
     <a>

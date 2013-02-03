@@ -50,6 +50,7 @@ class Pazpar2Controller extends SearchController
             }
             $this->flashMessenger->clearMessages();
         }
+        $this->data->setVariable('useroptions', $uo);
         return( $this->data );
     }
 
@@ -398,15 +399,23 @@ class Pazpar2Controller extends SearchController
     /* STATIC PAGES */
 
         public function aboutAction(){
+        	$uo = new UserOptions($this->request);
+        	$this->data->setVariable('useroptions', $uo);
             return $this->data; // required for configuration vars
         }
         public function faqAction(){
+        	$uo = new UserOptions($this->request);
+        	$this->data->setVariable('useroptions', $uo);
             return $this->data;
         }
         public function accessAction(){
+        	$uo = new UserOptions($this->request);
+        	$this->data->setVariable('useroptions', $uo);
             return $this->data;
         }
         public function contactAction(){
+        	$uo = new UserOptions($this->request);
+        	$this->data->setVariable('useroptions', $uo);
             if ( $this->request->getParam('submit-comment') == 'Submit' )
             {
                 $email = $this->config->getConfig('contact_email', false);
@@ -426,6 +435,8 @@ class Pazpar2Controller extends SearchController
             return $this->data;
         }
         public function librariesAction(){
+        	$uo = new UserOptions($this->request);
+        	$this->data->setVariable('useroptions', $uo);
             $pzt = new Affiliations();
             $api = new ApiRaw('/institutions.json');
             $this->data->setVariable('institutions', $api->getData());
