@@ -35,6 +35,7 @@
 	<script src="javascript/pz2_ping_noredirect.js" language="javascript" type="text/javascript"></script> 
 	<script src="javascript/leaflet/leaflet.js" language="javascript" type="text/javascript"></script> 
 	<script src="javascript/library_map.js" language="javascript" type="text/javascript"></script> 
+	<script src="javascript/pz2.js" language="javascript" type="text/javascript"></script> 
 	<link href="javascript/leaflet/leaflet.css" rel="stylesheet" type="text/css" />
 	<!--[if lte IE 8]>
 		<link href="javascript/leaflet/leaflet.ie.css" rel="stylesheet" type="text/css" />

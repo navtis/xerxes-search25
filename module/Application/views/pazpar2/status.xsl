@@ -44,6 +44,7 @@
 	<xsl:call-template name="jslabels" /> 
 	<script src="javascript/jquery/jquery-1.6.2.min.js" language="javascript" type="text/javascript"></script> 
 	<script src="javascript/pz2_status.js" language="javascript" type="text/javascript"></script> 
+	<script src="javascript/pz2.js" language="javascript" type="text/javascript"></script> 
     </xsl:template>
 
 	<xsl:template name="main">

@@ -67,7 +67,9 @@
 <!-- override javascript-include from ../includes.xsl GS -->
 <xsl:template name="javascript_include"> 
     <xsl:call-template name="jslabels" /> 
-    <script src="javascript/jquery/jquery-1.6.2.min.js" language="javascript" type="text/javascript"></script> <script src="javascript/results.js" language="javascript" type="text/javascript"></script> <script src="javascript/pz2_ping.js" language="javascript" type="text/javascript"></script><script src="javascript/pz2_record.js" language="javascript" type="text/javascript"></script> 
+    <script src="javascript/jquery/jquery-1.6.2.min.js" language="javascript" type="text/javascript"></script> <script src="javascript/results.js" language="javascript" type="text/javascript"></script> <script src="javascript/pz2_ping.js" language="javascript" type="text/javascript"></script>
+    <script src="javascript/pz2_record.js" language="javascript" type="text/javascript"></script> 
+    <script src="javascript/pz2.js" language="javascript" type="text/javascript"></script> 
 </xsl:template> 
 
     <!--

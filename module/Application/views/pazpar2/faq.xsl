@@ -46,6 +46,7 @@
         <script src="javascript/jquery/jquery-1.6.2.min.js" language="javascript" type="text/javascript"></script>
         <script src="javascript/scroll.js" language="javascript" type="text/javascript"></script>
 	<script src="javascript/pz2_ping_noredirect.js" language="javascript" type="text/javascript"></script>
+	<script src="javascript/pz2.js" language="javascript" type="text/javascript"></script>
 </xsl:template>
 
 	

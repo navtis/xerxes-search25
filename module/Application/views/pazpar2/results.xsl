@@ -39,6 +39,7 @@
             <script src="javascript/results.js" language="javascript" type="text/javascript"></script>
 	    <script src="javascript/pz2_ping.js" language="javascript" type="text/javascript"></script>
 	     <script src="javascript/aim25.js" language="javascript" type="text/javascript"></script>
+	     <script src="javascript/pz2.js" language="javascript" type="text/javascript"></script>
     </xsl:template>
 
      <xsl:template match="/*">

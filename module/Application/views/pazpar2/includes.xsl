@@ -51,6 +51,12 @@
 			</div>
 			
 			<div class="search-inputs">
+				<xsl:call-template name="type-dropdown">
+					<xsl:with-param name="select-type" select="//pazpar2options/user-options/source_type"/>
+					<xsl:with-param name="type-list" select="config/sourcetype/option"/>
+				</xsl:call-template>
+				<xsl:text> </xsl:text><label for="query"><xsl:value-of select="$text_searchbox_for" /></label><xsl:text> </xsl:text>
+
 				<xsl:choose>
 					<xsl:when test="//pazpar2options/user-options/source_type='uls'">
 						<xsl:call-template name="search-dropdown">
@@ -64,11 +70,9 @@
 					</xsl:otherwise>
 				</xsl:choose>
 	
-				<xsl:text> </xsl:text><label for="query"><xsl:value-of select="$text_searchbox_for" /></label><xsl:text> </xsl:text>
 				
-				<input id="query" name="query" type="text" size="32" value="{$query}" /><xsl:text> </xsl:text>
-				
-				<input type="submit" name="Submit" value="GO" class="submit-searchbox{$language_suffix}" />
+				<input id="query" name="query" type="text" size="32" value="{$query}" style="margin-left:5px;"/><xsl:text> </xsl:text>
+			<input type="submit" name="Submit" value="GO" class="submit-searchbox{$language_suffix}" />
 			
 			</div>
 			
@@ -79,10 +83,24 @@
 	
 	</xsl:template>
 
+	<xsl:template name="type-dropdown">
+		<xsl:param name="select-type"/>
+		<xsl:param name="type-list"/>
+		<select id="search-type" name="search-type">
+			<xsl:for-each select="$type-list">
+				<option value="{@id}">
+					<xsl:if test="$select-type = @id">
+						<xsl:attribute name="selected">selected</xsl:attribute>
+					</xsl:if>
+					<xsl:value-of select="@public" />
+				</option>
+			</xsl:for-each>
+		</select>
+	</xsl:template>
+
 	<xsl:template name="search-dropdown">
 		<xsl:param name="select-list"/>
 		<select id="field" name="field">
-			
 			<xsl:for-each select="$select-list">
 					
 				<xsl:variable name="internal">

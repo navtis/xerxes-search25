@@ -287,7 +287,6 @@ class Pazpar2Controller extends SearchController
      */
         public function resultsAction()
         {
-            //var_dump($this->request); exit;
             $uo = new UserOptions($this->request); 
             $sid = $uo->getSessionData('pz2session');
             try
@@ -514,5 +513,27 @@ class Pazpar2Controller extends SearchController
             $response->headers()->addHeaderLine("Content-type", "application/json");
             $response->setContent(json_encode($arr)); 
             return $response;
+        }
+
+        // Switch between ULS/M25 libraries from the search box
+        public function ajaxchangetypeAction()
+        {
+            $uo = new UserOptions($this->request);
+            $response = $this->getResponse(); 
+            $response->headers()->addHeaderLine("Content-type", "application/json");
+            // FIXME get rid of constants in name
+            $type = $this->request->getParam('sourcetype');
+            if ($type == 'uls')
+            {
+                $list = $this->config->getConfig('uls_search_fields', false);
+            }
+            else
+            {
+                $list = $this->config->getConfig('basic_search_fields', false);
+            }
+            // reset the search dropdown to match the source type
+            $response->setContent(json_encode($list));
+            return $response;
+
         }
 }

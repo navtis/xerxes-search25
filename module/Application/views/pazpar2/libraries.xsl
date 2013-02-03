@@ -41,6 +41,11 @@
 	</xsl:call-template>
 </xsl:template>
 
+<xsl:template name="javascript_include">
+        <script src="javascript/jquery/jquery-1.6.2.min.js" language="javascript" type="text/javascript"></script>
+        <script src="javascript/pz2.js" language="javascript" type="text/javascript"></script>
+</xsl:template>
+
 <xsl:template name="main">
 	<h1>M25 Member Institutions</h1>
 	<p>The following institutions are members of the M25 Consortium.</p>

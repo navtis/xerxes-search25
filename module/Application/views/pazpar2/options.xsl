@@ -79,6 +79,7 @@
     <link href="javascript/jquery/css/ui-lightness/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
     <script src="javascript/pz2_target_checkboxes.js" language="javascript" type="text/javascript"></script> 
     <script src="javascript/pz2_options.js" language="javascript" type="text/javascript"></script>
+    <script src="javascript/pz2.js" language="javascript" type="text/javascript"></script>
 </xsl:template>
 
 <xsl:template name="tabs"> 
@@ -190,14 +191,18 @@
             </form>
 
         </div>
-
        <xsl:if test="//pazpar2options/user-options/source_type">
+<!--
 	       <div class="set-option">
 		       <h2>Select Resource type to search</h2>
 		       <p>The default search is across all the M25 libraries, but you can search the Union List of (print) Serials instead</p>
+-->
+<!-- temporary bodge - this now handled from search box, but need to be able
+     to submit this page from there -->
 			<form action="/pazpar2/options" id="sourcetype_form" method="post">
-                    		<select id="sourcetype" name="sourcetype">
-					<option value=""> -- Select type -- </option>
+<input type="hidden" id="sourcetype" name="sourcetype" value="temp"/>
+<!--                    		<select id="sourcetype" name="sourcetype">
+					<option value=""> - Select type - </option>
 					<xsl:for-each select="//config/sourcetype/option"> 
 						<option value="{@id}"><xsl:value-of select="@public"/></option>
 					</xsl:for-each>
@@ -206,8 +211,9 @@
                     		<input type="submit" id="submit-sourcetype" name="submit-sourcetype" value="Submit"/>
 			</form>
 		</div>
+-->
+		</form>
 	</xsl:if>
-
 			   
         <xsl:if test="//config/groupby/option[@id='access']">
             <div class="set-option">
